@@ -25,18 +25,18 @@ const steps: Step[] = [
   },
   {
     number: '02',
-    numberColor: '#FF6BFF',
+    numberColor: '#1A1A1A',
     icon: Cpu,
-    bg: '#FF6BFF',
+    bg: '#1A1A1A',
     title: 'Nuestra IA analiza',
     description:
       'Nuestro motor de inteligencia legal colombiana procesa tu caso y encuentra la mejor solución.',
   },
   {
     number: '03',
-    numberColor: '#FFA200',
+    numberColor: '#21C2FF',
     icon: CheckCircle,
-    bg: '#FFA200',
+    bg: '#21C2FF',
     title: 'Obtén tu resultado',
     description:
       'Recibe tu consulta respondida, contrato generado o guía personalizada. Listo para usar.',

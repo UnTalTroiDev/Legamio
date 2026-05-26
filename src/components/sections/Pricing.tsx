@@ -165,7 +165,7 @@ export function Pricing() {
               Anual
             </span>
             <span
-              className="relative rounded-full bg-[#FFDD00] px-2 py-0.5 text-[11px] font-bold text-[#1A1A1A]"
+              className="relative rounded-full bg-[#21C2FF] px-2 py-0.5 text-[11px] font-bold text-white"
               aria-label="Ahorra 20%"
             >
               -20%
@@ -196,7 +196,7 @@ export function Pricing() {
             )}
           >
             {plan.highlight && (
-              <span className="absolute top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#FFDD00] px-3 py-1 text-[12px] font-bold text-[#1A1A1A] shadow-[0_4px_12px_rgba(0,0,0,0.10)]">
+              <span className="absolute top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#1A1A1A] px-3 py-1 text-[12px] font-bold text-white shadow-[0_4px_12px_rgba(0,0,0,0.10)]">
                 {plan.badge}
               </span>
             )}

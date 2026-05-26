@@ -33,8 +33,8 @@ const features: Feature[] = [
       'Resuelve tus dudas jurídicas al instante. Nuestra IA entiende el contexto colombiano y te da respuestas claras y accionables.',
     chip: 'Disponible 24/7',
     chipColor: 'cyan',
-    iconColor: '#21C2FF',
-    iconBg: '#F0FBFF',
+    iconColor: '#FFFFFF',
+    iconBg: '#21C2FF',
     borderHover: 'hover:border-[#21C2FF]',
   },
   {
@@ -43,10 +43,10 @@ const features: Feature[] = [
     description:
       'Genera contratos laborales, de servicios, societarios y más en minutos. Adaptados a tu caso específico y a la ley colombiana.',
     chip: '+30 tipos de contratos',
-    chipColor: 'magenta',
-    iconColor: '#FF6BFF',
-    iconBg: '#FFF0FF',
-    borderHover: 'hover:border-[#FF6BFF]',
+    chipColor: 'cyan',
+    iconColor: '#21C2FF',
+    iconBg: '#F0FBFF',
+    borderHover: 'hover:border-[#21C2FF]',
   },
   {
     icon: BookOpen,
@@ -54,10 +54,10 @@ const features: Feature[] = [
     description:
       'Accede a guías paso a paso sobre trámites empresariales, constitución de sociedades, propiedad intelectual y más.',
     chip: '100% gratuitas',
-    chipColor: 'orange',
-    iconColor: '#FFA200',
-    iconBg: '#FFF8F0',
-    borderHover: 'hover:border-[#FFA200]',
+    chipColor: 'gray',
+    iconColor: '#FFFFFF',
+    iconBg: '#1A1A1A',
+    borderHover: 'hover:border-[#1A1A1A]',
   },
   {
     icon: LayoutDashboard,
@@ -65,10 +65,10 @@ const features: Feature[] = [
     description:
       'Organiza todos tus documentos, contratos y consultas en un solo lugar. Con historial completo y descarga en PDF.',
     chip: 'Organiza todo',
-    chipColor: 'yellow',
-    iconColor: '#FFDD00',
-    iconBg: '#FFFDF0',
-    borderHover: 'hover:border-[#FFDD00]',
+    chipColor: 'cyan',
+    iconColor: '#21C2FF',
+    iconBg: '#F0FBFF',
+    borderHover: 'hover:border-[#21C2FF]',
   },
   {
     icon: Bell,
@@ -76,10 +76,10 @@ const features: Feature[] = [
     description:
       'Mantente al día con los cambios legales que afectan tu negocio. Recibes notificaciones cuando algo relevante cambia.',
     chip: 'Proactivo',
-    chipColor: 'cyan',
-    iconColor: '#21C2FF',
-    iconBg: '#F0FBFF',
-    borderHover: 'hover:border-[#21C2FF]',
+    chipColor: 'gray',
+    iconColor: '#1A1A1A',
+    iconBg: '#F5F5F5',
+    borderHover: 'hover:border-[#1A1A1A]',
   },
   {
     icon: Shield,
@@ -87,10 +87,10 @@ const features: Feature[] = [
     description:
       'Tus consultas y documentos están cifrados y protegidos. Cumplimos con la Ley 1581 de protección de datos de Colombia.',
     chip: 'Ley 1581',
-    chipColor: 'gray',
-    iconColor: '#616161',
-    iconBg: '#F5F5F5',
-    borderHover: 'hover:border-[#616161]',
+    chipColor: 'cyan',
+    iconColor: '#FFFFFF',
+    iconBg: '#21C2FF',
+    borderHover: 'hover:border-[#21C2FF]',
   },
 ];
 
