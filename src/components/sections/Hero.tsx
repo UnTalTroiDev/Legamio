@@ -1,7 +1,6 @@
 import { motion } from 'framer-motion';
 import { ArrowRight, PlayCircle, Send, Sparkles } from 'lucide-react';
 
-import Wordmark from '@/assets/logo/Wordmark';
 import LegamioMark from '@/assets/logo/LegamioMark';
 import { Badge, Button } from '@/components/ui';
 import { useCountUp } from '@/hooks/useCountUp';
@@ -15,46 +14,22 @@ const avatars = [
   { bg: '#FFDD00', initials: 'AC' },
 ];
 
-const particles = [
-  { color: '#21C2FF', size: 14, top: '8%', left: '6%', duration: 5 },
-  { color: '#FF6BFF', size: 10, top: '20%', left: '88%', duration: 4 },
-  { color: '#FFDD00', size: 12, top: '70%', left: '4%', duration: 6 },
-  { color: '#FFA200', size: 8, top: '55%', left: '92%', duration: 3.5 },
-  { color: '#21C2FF', size: 9, top: '88%', left: '40%', duration: 5.5 },
-  { color: '#FF6BFF', size: 11, top: '12%', left: '50%', duration: 4.5 },
-  { color: '#FFA200', size: 8, top: '40%', left: '70%', duration: 5 },
-];
-
 export function Hero() {
   const { ref: socialRef, inView } = useInView<HTMLDivElement>({ threshold: 0.3 });
   const count = useCountUp(2000, inView, 1800);
 
   return (
     <section className="relative overflow-hidden bg-white pt-10 pb-16 md:pt-20 md:pb-24">
-      {/* Partículas flotantes */}
-      <div className="pointer-events-none absolute inset-0">
-        {particles.map((p, i) => (
-          <motion.span
-            key={i}
-            className="absolute rounded-full"
-            style={{
-              top: p.top,
-              left: p.left,
-              width: p.size,
-              height: p.size,
-              backgroundColor: p.color,
-              opacity: 0.35,
-            }}
-            animate={{ y: [0, -18, 0], x: [0, i % 2 === 0 ? 6 : -6, 0] }}
-            transition={{
-              duration: p.duration,
-              repeat: Infinity,
-              ease: 'easeInOut',
-            }}
-            aria-hidden
-          />
-        ))}
-      </div>
+      {/* Grilla editorial sutil — sensación de página de diario jurídico */}
+      <div
+        aria-hidden
+        className="pointer-events-none absolute inset-0 opacity-[0.04]"
+        style={{
+          backgroundImage:
+            'linear-gradient(to right, #1A1A1A 1px, transparent 1px)',
+          backgroundSize: '8.333% 100%',
+        }}
+      />
 
       <div className="relative mx-auto grid w-full max-w-[1200px] grid-cols-1 lg:grid-cols-2 items-center gap-12 px-6">
         <motion.div
@@ -149,21 +124,11 @@ export function Hero() {
 
         {/* Mockup chat */}
         <div className="relative">
-          {/* blobs decorativos */}
+          {/* Halo único cyan — un solo punto de calor cromático */}
           <div
             aria-hidden
-            className="absolute -top-8 -right-10 size-56 rounded-full blur-3xl"
-            style={{ backgroundColor: '#21C2FF', opacity: 0.18 }}
-          />
-          <div
-            aria-hidden
-            className="absolute -bottom-8 -left-6 size-48 rounded-full blur-3xl"
-            style={{ backgroundColor: '#FF6BFF', opacity: 0.16 }}
-          />
-          <div
-            aria-hidden
-            className="absolute top-20 right-32 size-24 rounded-full blur-2xl"
-            style={{ backgroundColor: '#FFDD00', opacity: 0.18 }}
+            className="absolute -top-10 -right-12 size-72 rounded-full blur-3xl"
+            style={{ backgroundColor: '#21C2FF', opacity: 0.16 }}
           />
 
           <motion.div
@@ -220,31 +185,23 @@ export function Hero() {
               </div>
             </motion.div>
 
-            {/* Tarjeta flotante: contrato listo */}
+            {/* Tarjeta flotante: contrato listo — única tarjeta accesoria */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: 0.7, duration: 0.5 }}
               className="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3 rounded-2xl bg-white border border-[#E8E8E8] shadow-[0_8px_24px_rgba(0,0,0,0.10)] px-4 py-3"
             >
-              <span className="grid size-9 place-items-center rounded-full bg-[#FFF0FF] text-[#FF6BFF]">
+              <span className="grid size-9 place-items-center rounded-full bg-[#F0FBFF] text-[#21C2FF]">
                 <Sparkles className="size-4" />
               </span>
               <div className="text-xs">
                 <p className="font-bold text-[#1A1A1A]">Contrato listo</p>
-                <p className="text-[#616161]">en 12 segundos</p>
+                <p className="text-[#616161]">
+                  en <span className="font-display-italic font-medium text-[#1A1A1A]">12s</span>
+                </p>
               </div>
             </motion.div>
-          </motion.div>
-
-          {/* Mini logo flotante de marca para reforzar — sobre fondo blanco solo */}
-          <motion.div
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            transition={{ delay: 1, duration: 0.4 }}
-            className="absolute -top-4 -right-2 hidden md:block bg-white px-3 py-2 rounded-xl border border-[#E8E8E8] shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
-          >
-            <Wordmark variant="dark" withTagline={false} size={22} />
           </motion.div>
         </div>
       </div>
