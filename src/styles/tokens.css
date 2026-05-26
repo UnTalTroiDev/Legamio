@@ -1,0 +1,123 @@
+@import "tailwindcss";
+
+@theme {
+  /* Colores de marca Legamio */
+  --color-legamio-magenta: #FF6BFF;
+  --color-legamio-yellow: #FFDD00;
+  --color-legamio-orange: #FFA200;
+  --color-legamio-cyan: #21C2FF;
+  --color-legamio-gray: #616161;
+  --color-legamio-white: #FFFFFF;
+  --color-legamio-dark: #1A1A1A;
+  --color-legamio-surface: #F8F8F8;
+  --color-legamio-border: #E8E8E8;
+  --color-legamio-muted: #999999;
+
+  /* Tints suaves para fondos de iconos */
+  --color-legamio-cyan-soft: #F0FBFF;
+  --color-legamio-magenta-soft: #FFF0FF;
+  --color-legamio-yellow-soft: #FFFDF0;
+  --color-legamio-orange-soft: #FFF8F0;
+  --color-legamio-gray-soft: #F5F5F5;
+
+  /* Tipografía */
+  --font-sans: 'Roboto', system-ui, sans-serif;
+
+  /* Radios extras */
+  --radius-card: 16px;
+  --radius-block: 24px;
+}
+
+:root {
+  /* Aliases sin prefijo para uso libre en CSS */
+  --color-magenta: #FF6BFF;
+  --color-yellow: #FFDD00;
+  --color-orange: #FFA200;
+  --color-cyan: #21C2FF;
+  --color-gray: #616161;
+  --color-white: #FFFFFF;
+  --color-dark: #1A1A1A;
+  --color-surface: #F8F8F8;
+  --color-border: #E8E8E8;
+
+  --font-sans: 'Roboto', system-ui, sans-serif;
+  --font-light: 300;
+  --font-regular: 400;
+  --font-bold: 700;
+
+  --spacing-unit: 8px;
+
+  --radius-sm: 8px;
+  --radius-md: 16px;
+  --radius-lg: 24px;
+  --radius-full: 9999px;
+
+  --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.06);
+  --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.10);
+  --shadow-lg: 0 16px 48px rgba(0, 0, 0, 0.14);
+  --shadow-cyan: 0 8px 32px rgba(33, 194, 255, 0.20);
+  --shadow-magenta: 0 8px 32px rgba(255, 107, 255, 0.20);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+html,
+body {
+  margin: 0;
+  padding: 0;
+  font-family: var(--font-sans);
+  color: var(--color-gray);
+  background: var(--color-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+/* Util: ocultar scrollbar manteniendo scroll */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+/* Marquee infinito para banda de logos */
+@keyframes legamio-marquee {
+  from { transform: translateX(0); }
+  to   { transform: translateX(-50%); }
+}
+.legamio-marquee {
+  animation: legamio-marquee 28s linear infinite;
+}
+
+/* Typing dots para chat IA */
+@keyframes legamio-bounce {
+  0%, 60%, 100% { transform: translateY(0); opacity: 0.6; }
+  30% { transform: translateY(-6px); opacity: 1; }
+}
+.legamio-typing-dot {
+  animation: legamio-bounce 1.2s infinite ease-in-out;
+}
+
+/* Respeta prefers-reduced-motion */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}
