@@ -7,13 +7,6 @@ import { useCountUp } from '@/hooks/useCountUp';
 import { useInView } from '@/hooks/useInView';
 import { fadeInUp, staggerContainer, floatY } from '@/lib/animations';
 
-const avatars = [
-  { bg: '#21C2FF', initials: 'MR' },
-  { bg: '#FF6BFF', initials: 'LC' },
-  { bg: '#FFA200', initials: 'DV' },
-  { bg: '#FFDD00', initials: 'AC' },
-];
-
 export function Hero() {
   const { ref: socialRef, inView } = useInView<HTMLDivElement>({ threshold: 0.3 });
   const count = useCountUp(2000, inView, 1800);
@@ -99,26 +92,25 @@ export function Hero() {
           <motion.div
             ref={socialRef}
             variants={fadeInUp}
-            className="flex items-center gap-4 pt-2"
+            className="mt-2 grid grid-cols-2 gap-x-8 gap-y-2 max-w-md"
           >
-            <div className="flex -space-x-2.5">
-              {avatars.map((a, i) => (
-                <span
-                  key={i}
-                  className="grid size-9 place-items-center rounded-full border-2 border-white text-xs font-bold text-white"
-                  style={{ backgroundColor: a.bg }}
-                  aria-hidden
-                >
-                  {a.initials}
-                </span>
-              ))}
+            <div className="border-l-2 border-[#21C2FF] pl-4">
+              <p className="font-display text-[36px] md:text-[40px] font-medium leading-none text-[#1A1A1A] tracking-tight">
+                {count.toLocaleString('es-CO')}
+                <span className="font-display-italic text-[#21C2FF]">+</span>
+              </p>
+              <p className="mt-2 text-[13px] uppercase tracking-[0.08em] text-[#616161]">
+                Empresas activas
+              </p>
             </div>
-            <p className="text-sm text-[#616161]">
-              <span className="font-bold text-[#1A1A1A]">
-                Más de {count.toLocaleString('es-CO')}+
-              </span>{' '}
-              empresas ya confían en Legamio
-            </p>
+            <div className="border-l-2 border-[#1A1A1A] pl-4">
+              <p className="font-display text-[36px] md:text-[40px] font-medium leading-none text-[#1A1A1A] tracking-tight">
+                12<span className="font-display-italic text-[#616161]">s</span>
+              </p>
+              <p className="mt-2 text-[13px] uppercase tracking-[0.08em] text-[#616161]">
+                Contrato promedio
+              </p>
+            </div>
           </motion.div>
         </motion.div>
 
