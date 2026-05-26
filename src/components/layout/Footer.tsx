@@ -90,7 +90,7 @@ export function Footer() {
                   aria-label={label}
                   target="_blank"
                   rel="noreferrer"
-                  className="grid size-10 place-items-center rounded-full border border-[#333] text-[#666] hover:text-[#21C2FF] hover:border-[#21C2FF] transition-colors duration-200"
+                  className="grid size-10 place-items-center rounded-full border border-[#333] text-[#757575] hover:text-[#21C2FF] hover:border-[#21C2FF] transition-colors duration-200"
                 >
                   <Icon className="size-4" />
                 </a>
@@ -116,7 +116,7 @@ export function Footer() {
                 ))}
               </ul>
               {col.title === 'Legal' && (
-                <p className="mt-5 text-[11px] font-light leading-relaxed text-[#666]">
+                <p className="mt-5 text-[11px] font-light leading-relaxed text-[#757575]">
                   No somos un bufete de abogados. Nuestro servicio es informativo
                   y no constituye asesoría jurídica formal.
                 </p>
@@ -127,8 +127,8 @@ export function Footer() {
 
         <div className="mt-14 h-px bg-[#333]" />
 
-        <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-[13px] text-[#666]">
-          <p>© 2025 Legamio SAS. Todos los derechos reservados.</p>
+        <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-[13px] text-[#757575]">
+          <p>© {new Date().getFullYear()} Legamio SAS. Todos los derechos reservados.</p>
           <p>
             Hecho con <span className="text-[#FF6BFF]">♥</span> en Colombia{' '}
             <span aria-hidden>🇨🇴</span>

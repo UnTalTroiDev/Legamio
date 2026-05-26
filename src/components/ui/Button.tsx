@@ -11,13 +11,16 @@ type NativeButton = Omit<
   keyof HTMLMotionProps<'button'>
 >;
 
-export interface ButtonProps extends HTMLMotionProps<'button'>, NativeButton {
+export interface ButtonProps
+  extends Omit<HTMLMotionProps<'button'>, 'children'>,
+    NativeButton {
   variant?: ButtonVariant;
   size?: ButtonSize;
   leftIcon?: ReactNode;
   rightIcon?: ReactNode;
   isLoading?: boolean;
   fullWidth?: boolean;
+  children?: ReactNode;
 }
 
 const variantClasses: Record<ButtonVariant, string> = {

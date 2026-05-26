@@ -1,7 +1,3 @@
-/**
- * Banda horizontal infinita con logos ficticios de empresas.
- * Texto en tipografía estilizada (no usamos logos reales). Fondo blanco.
- */
 const brands = [
   'TechBog',
   'Natura Orgánica',
@@ -20,17 +16,16 @@ export function LogoMarquee() {
   return (
     <section className="border-y border-[#E8E8E8] bg-white py-8 overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-6 mb-6">
-        <p className="text-center text-xs font-bold uppercase tracking-[2px] text-[#999]">
+        <p className="text-center text-xs font-bold uppercase tracking-[2px] text-[#757575]">
           Empresas que confían en Legamio
         </p>
       </div>
-      <div className="relative w-full overflow-hidden">
+      <div className="relative w-full overflow-hidden legamio-marquee-fade">
         <div className="legamio-marquee flex w-max items-center gap-14 px-6 whitespace-nowrap">
           {items.map((name, i) => (
             <span
               key={i}
-              className="text-2xl font-bold tracking-tight text-[#999]/70 hover:text-[#21C2FF] transition-colors"
-              style={{ fontFamily: 'Roboto, sans-serif' }}
+              className="font-display text-2xl font-medium tracking-tight text-[#757575]/70 hover:text-[#21C2FF] transition-colors"
             >
               {name}
             </span>

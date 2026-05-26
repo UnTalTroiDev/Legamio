@@ -135,7 +135,7 @@ export function ContractGenerator() {
                       'grid size-9 place-items-center rounded-full border text-xs font-bold shrink-0 transition-colors',
                       completed && 'bg-[#21C2FF] border-[#21C2FF] text-white',
                       active && !completed && 'bg-[#21C2FF] border-[#21C2FF] text-white shadow-[0_4px_12px_rgba(33,194,255,0.30)]',
-                      !active && !completed && 'border-[#E8E8E8] bg-white text-[#999]',
+                      !active && !completed && 'border-[#E8E8E8] bg-white text-[#757575]',
                     )}
                     aria-current={active ? 'step' : undefined}
                   >
@@ -144,7 +144,7 @@ export function ContractGenerator() {
                   <span
                     className={cn(
                       'text-sm hidden sm:inline',
-                      active ? 'font-bold text-[#1A1A1A]' : 'text-[#999]',
+                      active ? 'font-bold text-[#1A1A1A]' : 'text-[#757575]',
                     )}
                   >
                     {label}
@@ -366,7 +366,7 @@ function StepDetails({
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Field label="Valor (COP)">
             <div className="flex items-center rounded-lg border border-[#E8E8E8] bg-white px-3 focus-within:border-[#21C2FF]">
-              <span className="text-sm text-[#999] mr-1">$</span>
+              <span className="text-sm text-[#757575] mr-1">$</span>
               <input
                 value={details.valor}
                 onChange={(e) => setDetails({ ...details, valor: e.target.value })}
@@ -402,7 +402,7 @@ function StepDetails({
             }
             className="legamio-range w-full accent-[#21C2FF]"
           />
-          <div className="flex justify-between text-[11px] text-[#999] mt-1">
+          <div className="flex justify-between text-[11px] text-[#757575] mt-1">
             <span>1 mes</span>
             <span>36 meses</span>
           </div>
@@ -439,7 +439,7 @@ function StepPreview({
 
       <div className="mt-5 rounded-2xl border border-[#E8E8E8] bg-white p-7 max-h-[420px] overflow-y-auto">
         <div className="border-b border-[#E8E8E8] pb-4 mb-5">
-          <p className="text-[11px] uppercase tracking-[2px] text-[#999]">
+          <p className="text-[11px] uppercase tracking-[2px] text-[#757575]">
             República de Colombia · Documento privado
           </p>
           <h4 className="mt-1 text-xl font-bold text-[#1A1A1A]">
@@ -485,7 +485,7 @@ function StepPreview({
           <strong>{details.lugar}</strong>.
         </p>
 
-        <p className="mt-6 text-[12px] italic text-[#999]">
+        <p className="mt-6 text-[12px] italic text-[#757575]">
           Generado por Legamio · Revisa con un abogado antes de firmar.
         </p>
       </div>

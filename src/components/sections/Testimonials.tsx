@@ -82,9 +82,7 @@ export function Testimonials() {
   }, []);
 
   const pages = Math.max(1, testimonials.length - perView + 1);
-  useEffect(() => {
-    if (index > pages - 1) setIndex(0);
-  }, [pages, index]);
+  const safeIndex = Math.min(index, pages - 1);
 
   const next = useCallback(() => setIndex((i) => (i + 1) % pages), [pages]);
   const prev = useCallback(
@@ -98,7 +96,7 @@ export function Testimonials() {
     return () => window.clearInterval(id);
   }, [next]);
 
-  const visible = testimonials.slice(index, index + perView);
+  const visible = testimonials.slice(safeIndex, safeIndex + perView);
 
   return (
     <SectionWrapper id="testimonios" background="surface">
@@ -116,7 +114,7 @@ export function Testimonials() {
         <div className="overflow-hidden">
           <AnimatePresence mode="wait">
             <motion.div
-              key={index}
+              key={safeIndex}
               initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -24 }}
@@ -195,7 +193,7 @@ export function Testimonials() {
                 onClick={() => setIndex(i)}
                 className={cn(
                   'size-2.5 rounded-full transition-all',
-                  i === index
+                  i === safeIndex
                     ? 'bg-[#21C2FF] w-7'
                     : 'bg-[#E8E8E8] hover:bg-[#21C2FF]/40',
                 )}

@@ -1,14 +1,12 @@
 import { useEffect, useState } from 'react';
+import { useReducedMotion } from 'framer-motion';
 
-/**
- * Anima un contador de 0 hasta `target` cuando `enabled` es true.
- * Usa requestAnimationFrame y un easing easeOutCubic.
- */
 export function useCountUp(target: number, enabled: boolean, duration = 2000) {
+  const reduce = useReducedMotion();
   const [value, setValue] = useState(0);
 
   useEffect(() => {
-    if (!enabled) return;
+    if (!enabled || reduce) return;
     let raf = 0;
     const start = performance.now();
 
@@ -22,7 +20,7 @@ export function useCountUp(target: number, enabled: boolean, duration = 2000) {
 
     raf = requestAnimationFrame(tick);
     return () => cancelAnimationFrame(raf);
-  }, [target, enabled, duration]);
+  }, [target, enabled, duration, reduce]);
 
-  return value;
+  return reduce ? target : value;
 }

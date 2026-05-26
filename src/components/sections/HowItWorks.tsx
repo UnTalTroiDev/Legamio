@@ -25,18 +25,18 @@ const steps: Step[] = [
   },
   {
     number: '02',
-    numberColor: '#1A1A1A',
+    numberColor: '#FF6BFF',
     icon: Cpu,
-    bg: '#1A1A1A',
+    bg: '#FF6BFF',
     title: 'Nuestra IA analiza',
     description:
       'Nuestro motor de inteligencia legal colombiana procesa tu caso y encuentra la mejor solución.',
   },
   {
     number: '03',
-    numberColor: '#21C2FF',
+    numberColor: '#1A1A1A',
     icon: CheckCircle,
-    bg: '#21C2FF',
+    bg: '#1A1A1A',
     title: 'Obtén tu resultado',
     description:
       'Recibe tu consulta respondida, contrato generado o guía personalizada. Listo para usar.',
@@ -84,8 +84,13 @@ export function HowItWorks() {
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, amount: 0.5 }}
             transition={{ duration: 1.4, ease: [0.22, 1, 0.36, 1] }}
-            style={{ transformOrigin: 'left' }}
-            className="h-px bg-[#21C2FF]/40 -mt-px"
+            style={{
+              transformOrigin: 'left',
+              backgroundImage:
+                'linear-gradient(to right, #21C2FF 0%, #FF6BFF 55%, #1A1A1A 100%)',
+              opacity: 0.55,
+            }}
+            className="h-px -mt-px"
           />
         </div>
 

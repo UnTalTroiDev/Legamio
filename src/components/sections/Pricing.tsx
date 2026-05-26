@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 import { Check, CreditCard, Lock, ShieldCheck } from 'lucide-react';
 
 import { Badge, Button, SectionWrapper } from '@/components/ui';
@@ -197,7 +197,7 @@ export function Pricing() {
             )}
           >
             {plan.highlight && (
-              <span className="absolute top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#1A1A1A] px-3 py-1 text-[12px] font-bold text-white shadow-[0_4px_12px_rgba(0,0,0,0.10)]">
+              <span className="absolute top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#FF6BFF] px-3 py-1 text-[12px] font-bold text-white shadow-[0_4px_12px_rgba(255,107,255,0.30)]">
                 {plan.badge}
               </span>
             )}
@@ -241,15 +241,22 @@ export function Pricing() {
                 {plan.description}
               </p>
 
-              <div className="mt-6 flex items-baseline gap-2">
-                <span
-                  className={cn(
-                    'text-4xl font-bold tracking-tight',
-                    plan.variant === 'light' ? 'text-[#1A1A1A]' : 'text-white',
-                  )}
-                >
-                  {cycle === 'monthly' ? plan.priceMonthly : plan.priceAnnual}
-                </span>
+              <div className="mt-6 flex items-baseline gap-2 min-h-[40px]">
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.span
+                    key={`${plan.name}-${cycle}`}
+                    initial={{ opacity: 0, y: 8 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    exit={{ opacity: 0, y: -8 }}
+                    transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
+                    className={cn(
+                      'text-4xl font-bold tracking-tight',
+                      plan.variant === 'light' ? 'text-[#1A1A1A]' : 'text-white',
+                    )}
+                  >
+                    {cycle === 'monthly' ? plan.priceMonthly : plan.priceAnnual}
+                  </motion.span>
+                </AnimatePresence>
                 {plan.priceSuffix && (
                   <span
                     className={cn(

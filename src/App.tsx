@@ -9,6 +9,7 @@ import LandingPage from '@/pages/Landing';
 import ChatPage from '@/pages/ChatPage';
 import ContractsPage from '@/pages/ContractsPage';
 import PricingPage from '@/pages/PricingPage';
+import NotFoundPage from '@/pages/NotFound';
 
 function RouteScrollReset() {
   const { pathname } = useLocation();
@@ -29,7 +30,7 @@ function App() {
           <Route path="/chat" element={<ChatPage />} />
           <Route path="/contratos" element={<ContractsPage />} />
           <Route path="/precios" element={<PricingPage />} />
-          <Route path="*" element={<LandingPage />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
       </main>
       <Footer />

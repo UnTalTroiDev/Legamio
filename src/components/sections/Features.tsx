@@ -43,10 +43,10 @@ const features: Feature[] = [
     description:
       'Genera contratos laborales, de servicios, societarios y más en minutos. Adaptados a tu caso específico y a la ley colombiana.',
     chip: '+30 tipos de contratos',
-    chipColor: 'cyan',
-    iconColor: '#21C2FF',
-    iconBg: '#F0FBFF',
-    borderHover: 'hover:border-[#21C2FF]',
+    chipColor: 'magenta',
+    iconColor: '#FFFFFF',
+    iconBg: '#FF6BFF',
+    borderHover: 'hover:border-[#FF6BFF]',
   },
   {
     icon: BookOpen,
@@ -54,10 +54,10 @@ const features: Feature[] = [
     description:
       'Accede a guías paso a paso sobre trámites empresariales, constitución de sociedades, propiedad intelectual y más.',
     chip: '100% gratuitas',
-    chipColor: 'gray',
-    iconColor: '#FFFFFF',
-    iconBg: '#1A1A1A',
-    borderHover: 'hover:border-[#1A1A1A]',
+    chipColor: 'yellow',
+    iconColor: '#A88500',
+    iconBg: '#FFDD00',
+    borderHover: 'hover:border-[#FFDD00]',
   },
   {
     icon: LayoutDashboard,
@@ -76,10 +76,10 @@ const features: Feature[] = [
     description:
       'Mantente al día con los cambios legales que afectan tu negocio. Recibes notificaciones cuando algo relevante cambia.',
     chip: 'Proactivo',
-    chipColor: 'gray',
-    iconColor: '#1A1A1A',
-    iconBg: '#F5F5F5',
-    borderHover: 'hover:border-[#1A1A1A]',
+    chipColor: 'orange',
+    iconColor: '#FFFFFF',
+    iconBg: '#FFA200',
+    borderHover: 'hover:border-[#FFA200]',
   },
   {
     icon: Shield,
@@ -87,10 +87,10 @@ const features: Feature[] = [
     description:
       'Tus consultas y documentos están cifrados y protegidos. Cumplimos con la Ley 1581 de protección de datos de Colombia.',
     chip: 'Ley 1581',
-    chipColor: 'cyan',
+    chipColor: 'gray',
     iconColor: '#FFFFFF',
-    iconBg: '#21C2FF',
-    borderHover: 'hover:border-[#21C2FF]',
+    iconBg: '#1A1A1A',
+    borderHover: 'hover:border-[#1A1A1A]',
   },
 ];
 

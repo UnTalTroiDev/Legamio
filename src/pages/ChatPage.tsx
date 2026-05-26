@@ -11,8 +11,9 @@ export function ChatPage() {
         <Badge variant="cyan" dot>
           Producto
         </Badge>
-        <h1 className="mt-4 text-3xl md:text-4xl font-bold text-[#1A1A1A]">
-          Chat IA Legal
+        <h1 className="mt-4 font-display text-[32px] md:text-[44px] font-medium leading-[1.05] tracking-tight text-[#1A1A1A]">
+          Chat IA{' '}
+          <span className="font-display-italic font-normal">Legal</span>
         </h1>
         <p className="mt-3 text-[#616161] font-light">
           Resuelve tus dudas legales en lenguaje natural.

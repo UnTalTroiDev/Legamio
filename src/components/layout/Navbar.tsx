@@ -25,7 +25,7 @@ const links: NavLinkItem[] = [
   { label: 'Inicio', to: '/' },
   {
     label: 'Servicios',
-    to: '/chat',
+    to: '#servicios',
     children: [
       {
         label: 'Consultas IA',
@@ -153,7 +153,7 @@ export function Navbar() {
                                   {child.label}
                                 </span>
                                 {child.description && (
-                                  <span className="text-xs text-[#999] font-light">
+                                  <span className="text-xs text-[#757575] font-light">
                                     {child.description}
                                   </span>
                                 )}
@@ -230,14 +230,20 @@ export function Navbar() {
               <ul className="flex-1 overflow-y-auto px-3 py-4 divide-y divide-[#F0F0F0]">
                 {links.map((link) => (
                   <li key={link.label}>
-                    <Link
-                      to={link.to}
-                      onClick={() => setOpen(false)}
-                      className="flex items-center justify-between px-3 py-4 text-[#1A1A1A] hover:text-[#21C2FF] transition-colors"
-                    >
-                      <span className="font-bold">{link.label}</span>
-                      <ArrowRight className="size-4 text-[#999]" />
-                    </Link>
+                    {link.children ? (
+                      <div className="flex items-center justify-between px-3 py-4 text-[#1A1A1A]">
+                        <span className="font-bold">{link.label}</span>
+                      </div>
+                    ) : (
+                      <Link
+                        to={link.to}
+                        onClick={() => setOpen(false)}
+                        className="flex items-center justify-between px-3 py-4 text-[#1A1A1A] hover:text-[#21C2FF] transition-colors"
+                      >
+                        <span className="font-bold">{link.label}</span>
+                        <ArrowRight className="size-4 text-[#757575]" />
+                      </Link>
+                    )}
                     {link.children && (
                       <ul className="px-3 pb-3 -mt-2 flex flex-col gap-1">
                         {link.children.map((child) => (

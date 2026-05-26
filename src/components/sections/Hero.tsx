@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, PlayCircle, Send, Sparkles } from 'lucide-react';
 
 import LegamioMark from '@/assets/logo/LegamioMark';
@@ -10,6 +10,7 @@ import { fadeInUp, staggerContainer, floatY } from '@/lib/animations';
 export function Hero() {
   const { ref: socialRef, inView } = useInView<HTMLDivElement>({ threshold: 0.3 });
   const count = useCountUp(2000, inView, 1800);
+  const reduce = useReducedMotion();
 
   return (
     <section className="relative overflow-hidden bg-white pt-10 pb-16 md:pt-20 md:pb-24">
@@ -116,11 +117,16 @@ export function Hero() {
 
         {/* Mockup chat */}
         <div className="relative">
-          {/* Halo único cyan — un solo punto de calor cromático */}
+          {/* Halo cyan dominante + halo magenta sutil de balance cromático */}
           <div
             aria-hidden
-            className="absolute -top-10 -right-12 size-72 rounded-full blur-3xl"
-            style={{ backgroundColor: '#21C2FF', opacity: 0.16 }}
+            className="absolute -top-14 -right-16 size-96 rounded-full blur-3xl"
+            style={{ backgroundColor: '#21C2FF', opacity: 0.22 }}
+          />
+          <div
+            aria-hidden
+            className="absolute -bottom-16 -left-8 size-64 rounded-full blur-3xl"
+            style={{ backgroundColor: '#FF6BFF', opacity: 0.12 }}
           />
 
           <motion.div
@@ -130,7 +136,7 @@ export function Hero() {
             className="relative"
           >
             <motion.div
-              animate={floatY(12, 4)}
+              animate={reduce ? undefined : floatY(12, 4)}
               className="relative rounded-3xl bg-white border border-[#E8E8E8] shadow-[0_16px_48px_rgba(0,0,0,0.14)] overflow-hidden"
             >
               <div className="flex items-center justify-between gap-3 border-b border-[#F0F0F0] px-5 py-4">
@@ -164,7 +170,7 @@ export function Hero() {
               </div>
 
               <div className="flex items-center gap-2 border-t border-[#F0F0F0] bg-white px-3 py-3">
-                <div className="flex-1 rounded-full bg-[#F8F8F8] px-4 py-2.5 text-sm text-[#999]">
+                <div className="flex-1 rounded-full bg-[#F8F8F8] px-4 py-2.5 text-sm text-[#757575]">
                   Describe tu situación legal…
                 </div>
                 <button
@@ -176,24 +182,36 @@ export function Hero() {
                 </button>
               </div>
             </motion.div>
+          </motion.div>
 
-            {/* Tarjeta flotante: contrato listo — única tarjeta accesoria */}
-            <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
-              className="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3 rounded-2xl bg-white border border-[#E8E8E8] shadow-[0_8px_24px_rgba(0,0,0,0.10)] px-4 py-3"
-            >
-              <span className="grid size-9 place-items-center rounded-full bg-[#F0FBFF] text-[#21C2FF]">
-                <Sparkles className="size-4" />
-              </span>
-              <div className="text-xs">
-                <p className="font-bold text-[#1A1A1A]">Contrato listo</p>
-                <p className="text-[#616161]">
-                  en <span className="font-display-italic font-medium text-[#1A1A1A]">12s</span>
-                </p>
-              </div>
-            </motion.div>
+          {/* Tarjeta flotante: independiente del chat (flota en contra-fase) */}
+          <motion.div
+            initial={{ opacity: 0, x: 20 }}
+            animate={
+              reduce
+                ? { opacity: 1, x: 0 }
+                : { opacity: 1, x: 0, y: [0, 6, 0] }
+            }
+            transition={
+              reduce
+                ? { delay: 0.7, duration: 0.5 }
+                : {
+                    opacity: { delay: 0.7, duration: 0.5 },
+                    x: { delay: 0.7, duration: 0.5 },
+                    y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.2 },
+                  }
+            }
+            className="absolute -bottom-6 -left-6 z-10 hidden sm:flex items-center gap-3 rounded-2xl bg-white border border-[#E8E8E8] shadow-[0_8px_24px_rgba(0,0,0,0.10)] px-4 py-3"
+          >
+            <span className="grid size-9 place-items-center rounded-full bg-[#FFFDF0] text-[#A88500]">
+              <Sparkles className="size-4" />
+            </span>
+            <div className="text-xs">
+              <p className="font-bold text-[#1A1A1A]">Contrato listo</p>
+              <p className="text-[#616161]">
+                en <span className="font-display-italic font-medium text-[#1A1A1A]">12s</span>
+              </p>
+            </div>
           </motion.div>
         </div>
       </div>

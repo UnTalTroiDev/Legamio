@@ -1,11 +1,35 @@
-import { useMemo } from 'react';
-import { motion } from 'framer-motion';
+import { useState } from 'react';
+import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 
 import { Button } from '@/components/ui';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 const confettiColors = ['#21C2FF', '#FF6BFF', '#FFDD00', '#FFA200'];
+
+interface ConfettiPiece {
+  color: string;
+  shape: 'circle' | 'square' | 'triangle';
+  top: string;
+  left: string;
+  delay: number;
+  duration: number;
+  phase: number;
+  rotate: number;
+}
+
+function buildConfetti(): ConfettiPiece[] {
+  return Array.from({ length: 22 }).map((_, i) => ({
+    color: confettiColors[i % confettiColors.length],
+    shape: (['circle', 'square', 'triangle'] as const)[i % 3],
+    top: `${Math.random() * 90}%`,
+    left: `${Math.random() * 95}%`,
+    delay: Math.random() * 0.6,
+    duration: 3 + Math.random() * 3,
+    phase: Math.random() * 2,
+    rotate: Math.random() * 360,
+  }));
+}
 
 function ConfettiShape({ color, shape }: { color: string; shape: 'circle' | 'square' | 'triangle' }) {
   if (shape === 'circle') {
@@ -29,18 +53,8 @@ function ConfettiShape({ color, shape }: { color: string; shape: 'circle' | 'squ
 }
 
 export function FinalCta() {
-  const confetti = useMemo(
-    () =>
-      Array.from({ length: 22 }).map((_, i) => ({
-        color: confettiColors[i % confettiColors.length],
-        shape: (['circle', 'square', 'triangle'] as const)[i % 3],
-        top: `${Math.random() * 90}%`,
-        left: `${Math.random() * 95}%`,
-        delay: Math.random() * 0.6,
-        duration: 3 + Math.random() * 3,
-      })),
-    [],
-  );
+  const reduce = useReducedMotion();
+  const [confetti] = useState<ConfettiPiece[]>(buildConfetti);
 
   return (
     <section
@@ -60,15 +74,24 @@ export function FinalCta() {
             style={{ top: c.top, left: c.left }}
           >
             <motion.div
-              animate={{
-                y: [0, -10, 0],
-                rotate: [0, 18, -10, 0],
-              }}
-              transition={{
-                duration: c.duration,
-                repeat: Infinity,
-                ease: 'easeInOut',
-              }}
+              animate={
+                reduce
+                  ? { rotate: c.rotate }
+                  : {
+                      y: [0, -10, 0],
+                      rotate: [c.rotate, c.rotate + 18, c.rotate - 10, c.rotate],
+                    }
+              }
+              transition={
+                reduce
+                  ? undefined
+                  : {
+                      duration: c.duration,
+                      repeat: Infinity,
+                      ease: 'easeInOut',
+                      delay: c.phase,
+                    }
+              }
             >
               <ConfettiShape color={c.color} shape={c.shape} />
             </motion.div>
@@ -93,7 +116,7 @@ export function FinalCta() {
         </motion.h2>
         <motion.p
           variants={fadeInUp}
-          className="mt-5 text-lg font-light text-[#999]"
+          className="mt-5 text-lg font-light text-[#B8B8B8]"
         >
           Únete a más de 2,000 empresas que ya usan Legamio para resolver su día
           a día legal.

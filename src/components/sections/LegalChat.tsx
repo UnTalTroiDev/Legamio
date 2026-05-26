@@ -100,9 +100,12 @@ function TypingDots() {
 }
 
 function TypewriterText({ text }: { text: string }) {
+  return <TypewriterInner key={text} text={text} />;
+}
+
+function TypewriterInner({ text }: { text: string }) {
   const [shown, setShown] = useState('');
   useEffect(() => {
-    setShown('');
     let i = 0;
     const id = window.setInterval(() => {
       i += 3;
@@ -130,7 +133,7 @@ export function LegalChat() {
     if (last?.role !== 'user') return;
     if (messages.some((m) => m.id === 'ai-generated')) return;
 
-    setPending(true);
+    const showTypingId = window.setTimeout(() => setPending(true), 0);
     const id = window.setTimeout(() => {
       setPending(false);
       setMessages((prev) => [
@@ -148,7 +151,10 @@ export function LegalChat() {
         },
       ]);
     }, 1500);
-    return () => window.clearTimeout(id);
+    return () => {
+      window.clearTimeout(showTypingId);
+      window.clearTimeout(id);
+    };
   }, [messages]);
 
   const handleSend = () => {
@@ -200,7 +206,7 @@ export function LegalChat() {
           </div>
 
           <nav className="flex-1 overflow-y-auto px-3 pt-5">
-            <p className="px-3 mb-2 text-[11px] uppercase tracking-[1px] text-[#999] font-bold">
+            <p className="px-3 mb-2 text-[11px] uppercase tracking-[1px] text-[#757575] font-bold">
               Recientes
             </p>
             <ul className="flex flex-col gap-1">
@@ -234,7 +240,7 @@ export function LegalChat() {
               </span>
               <div className="text-xs leading-tight">
                 <p className="font-bold text-[#1A1A1A]">Jair Álvarez</p>
-                <p className="text-[#999]">Plan Pro</p>
+                <p className="text-[#757575]">Plan Pro</p>
               </div>
             </div>
             <button
@@ -371,7 +377,7 @@ export function LegalChat() {
                 }}
                 placeholder="Describe tu situación legal…"
                 rows={1}
-                className="flex-1 max-h-32 resize-none bg-transparent text-sm text-[#1A1A1A] placeholder:text-[#999] outline-none py-1.5"
+                className="flex-1 max-h-32 resize-none bg-transparent text-sm text-[#1A1A1A] placeholder:text-[#9A9A9A] outline-none py-1.5"
               />
               <button
                 type="button"
@@ -384,7 +390,7 @@ export function LegalChat() {
               </button>
             </div>
 
-            <p className="mt-2.5 text-[11px] font-light text-[#999] text-center">
+            <p className="mt-2.5 text-[11px] font-light text-[#757575] text-center">
               Legamio IA no reemplaza el consejo de un abogado para casos
               complejos.
             </p>
