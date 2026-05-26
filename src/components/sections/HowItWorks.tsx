@@ -55,9 +55,9 @@ export function HowItWorks() {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-[32px] md:text-[42px] font-bold text-[#1A1A1A] leading-tight"
+          className="font-display text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight"
         >
-          ¿Cómo funciona?
+          ¿Cómo <span className="font-display-italic font-normal">funciona</span>?
         </motion.h2>
         <motion.p
           variants={fadeInUp}

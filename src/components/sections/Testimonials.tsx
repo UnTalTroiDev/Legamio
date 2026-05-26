@@ -103,8 +103,9 @@ export function Testimonials() {
   return (
     <SectionWrapper id="testimonios" background="surface">
       <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
-        <h2 className="text-[32px] md:text-[42px] font-bold text-[#1A1A1A] leading-tight">
-          Lo que dicen nuestros usuarios
+        <h2 className="font-display text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight">
+          Lo que <span className="font-display-italic font-normal">dicen</span>{' '}
+          nuestros usuarios
         </h2>
         <p className="mt-4 text-lg font-light text-[#616161]">
           Emprendedores y empresas que ya gestionan su parte legal con Legamio.

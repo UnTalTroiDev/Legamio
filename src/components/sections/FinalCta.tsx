@@ -85,9 +85,11 @@ export function FinalCta() {
       >
         <motion.h2
           variants={fadeInUp}
-          className="text-[34px] md:text-[48px] font-bold leading-tight text-white"
+          className="font-display text-[36px] md:text-[52px] font-medium leading-[1.05] tracking-tight text-white"
         >
-          ¿Listo para proteger tu negocio?
+          ¿Listo para{' '}
+          <span className="font-display-italic font-normal">proteger</span>{' '}
+          tu negocio?
         </motion.h2>
         <motion.p
           variants={fadeInUp}

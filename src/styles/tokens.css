@@ -20,8 +20,9 @@
   --color-legamio-orange-soft: #FFF8F0;
   --color-legamio-gray-soft: #F5F5F5;
 
-  /* Tipografía */
-  --font-sans: 'Roboto', system-ui, sans-serif;
+  /* Tipografía — editorial jurídico contemporáneo */
+  --font-sans: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --font-display: 'Fraunces', 'Times New Roman', Georgia, serif;
 
   /* Radios extras */
   --radius-card: 16px;
@@ -40,7 +41,8 @@
   --color-surface: #F8F8F8;
   --color-border: #E8E8E8;
 
-  --font-sans: 'Roboto', system-ui, sans-serif;
+  --font-sans: 'Inter Tight', 'Inter', system-ui, sans-serif;
+  --font-display: 'Fraunces', 'Times New Roman', Georgia, serif;
   --font-light: 300;
   --font-regular: 400;
   --font-bold: 700;
@@ -68,11 +70,26 @@ body {
   margin: 0;
   padding: 0;
   font-family: var(--font-sans);
+  font-feature-settings: 'ss01', 'cv11';
   color: var(--color-gray);
   background: var(--color-white);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-rendering: optimizeLegibility;
+}
+
+/* Display: serif editorial con tracking ajustado para títulos */
+.font-display {
+  font-family: var(--font-display);
+  font-feature-settings: 'ss01', 'kern', 'liga', 'dlig';
+  letter-spacing: -0.02em;
+}
+
+.font-display-italic {
+  font-family: var(--font-display);
+  font-style: italic;
+  font-feature-settings: 'ss01', 'kern', 'liga', 'dlig';
+  letter-spacing: -0.015em;
 }
 
 * {

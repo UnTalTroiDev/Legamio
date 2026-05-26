@@ -102,9 +102,10 @@ export function Pricing() {
         </motion.div>
         <motion.h2
           variants={fadeInUp}
-          className="mt-5 text-[32px] md:text-[42px] font-bold text-[#1A1A1A] leading-tight"
+          className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight"
         >
-          Elige el plan que necesitas
+          Elige el plan que{' '}
+          <span className="font-display-italic font-normal">necesitas</span>
         </motion.h2>
         <motion.p
           variants={fadeInUp}

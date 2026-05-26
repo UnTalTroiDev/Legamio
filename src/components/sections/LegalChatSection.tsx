@@ -8,8 +8,9 @@ export function LegalChatSection() {
         <Badge variant="cyan" dot>
           Demo interactiva
         </Badge>
-        <h2 className="mt-5 text-[32px] md:text-[42px] font-bold text-[#1A1A1A] leading-tight">
-          Habla con Legamio IA
+        <h2 className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight">
+          Habla con{' '}
+          <span className="font-display-italic font-normal">Legamio IA</span>
         </h2>
         <p className="mt-3 text-lg font-light text-[#616161] max-w-2xl mx-auto">
           Una vista previa funcional del asistente legal. Escribe, sugiere y mira

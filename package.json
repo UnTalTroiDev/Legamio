@@ -10,7 +10,8 @@
     "preview": "vite preview"
   },
   "dependencies": {
-    "@fontsource/roboto": "^5.2.10",
+    "@fontsource/fraunces": "^5.2.9",
+    "@fontsource/inter-tight": "^5.2.7",
     "@tailwindcss/vite": "^4.3.0",
     "clsx": "^2.1.1",
     "framer-motion": "^12.40.0",

@@ -111,9 +111,10 @@ export function ContractGenerator() {
   return (
     <SectionWrapper id="contratos" background="white">
       <div className="mx-auto max-w-2xl text-center mb-10">
-        <Badge variant="magenta">Generador inteligente</Badge>
-        <h2 className="mt-5 text-[32px] md:text-[42px] font-bold text-[#1A1A1A] leading-tight">
-          Genera tu contrato en minutos
+        <Badge variant="cyan">Generador inteligente</Badge>
+        <h2 className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight">
+          Genera tu contrato en{' '}
+          <span className="font-display-italic font-normal">minutos</span>
         </h2>
         <p className="mt-3 text-lg font-light text-[#616161]">
           Sin tecnicismos, sin esperas. Solo describe lo que necesitas.

@@ -71,16 +71,28 @@ export function Hero() {
 
           <motion.h1
             variants={fadeInUp}
-            className="text-[36px] md:text-[56px] font-bold leading-[1.05] tracking-tight text-[#1A1A1A]"
+            className="font-display text-[40px] md:text-[64px] font-medium leading-[1.02] tracking-tight text-[#1A1A1A]"
           >
             Tu aliado legal para{' '}
             <span className="relative inline-block">
-              <span className="relative z-10">crecer sin miedo</span>
-              <span
+              <span className="relative z-10 font-display-italic font-normal">crecer sin miedo</span>
+              <svg
                 aria-hidden
-                className="absolute inset-x-0 bottom-1 h-3 -z-0 rounded-sm"
-                style={{ backgroundColor: '#FFDD00', opacity: 0.55 }}
-              />
+                viewBox="0 0 300 12"
+                preserveAspectRatio="none"
+                className="absolute -bottom-1 left-0 w-full h-[10px] text-[#21C2FF]"
+              >
+                <motion.path
+                  d="M2 8 C 60 2, 150 12, 298 4"
+                  fill="none"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  initial={{ pathLength: 0 }}
+                  animate={{ pathLength: 1 }}
+                  transition={{ delay: 0.8, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+                />
+              </svg>
             </span>
           </motion.h1>
 

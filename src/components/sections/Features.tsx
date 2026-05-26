@@ -109,9 +109,11 @@ export function Features() {
         </motion.div>
         <motion.h2
           variants={fadeInUp}
-          className="mt-5 text-[32px] md:text-[42px] font-bold text-[#1A1A1A] leading-tight tracking-tight"
+          className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight"
         >
-          Todo lo que necesitas para proteger tu negocio
+          Todo lo que necesitas para{' '}
+          <span className="font-display-italic font-normal">proteger</span>{' '}
+          tu negocio
         </motion.h2>
         <motion.p
           variants={fadeInUp}
