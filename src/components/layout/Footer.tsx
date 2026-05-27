@@ -129,9 +129,12 @@ export function Footer() {
 
         <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-[13px] text-[#757575]">
           <p>© {new Date().getFullYear()} Legamio SAS. Todos los derechos reservados.</p>
-          <p>
-            Hecho con <span className="text-[#FF6BFF]">♥</span> en Colombia{' '}
-            <span aria-hidden>🇨🇴</span>
+          <p className="flex items-center gap-2">
+            <span
+              aria-hidden
+              className="inline-block size-1.5 rounded-full bg-[#21C2FF]"
+            />
+            Diseñado y operado desde Bogotá, Colombia.
           </p>
         </div>
       </div>
