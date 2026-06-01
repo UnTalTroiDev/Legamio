@@ -1,4 +1,5 @@
-import { motion, useReducedMotion } from 'framer-motion';
+import { useEffect, useState } from 'react';
+import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, PlayCircle, Send, Sparkles } from 'lucide-react';
 
 import LegamioMark from '@/assets/logo/LegamioMark';
@@ -6,6 +7,79 @@ import { Badge, Button } from '@/components/ui';
 import { useCountUp } from '@/hooks/useCountUp';
 import { useInView } from '@/hooks/useInView';
 import { fadeInUp, staggerContainer, floatY } from '@/lib/animations';
+
+const HERO_PHRASES = [
+  'crecer sin miedo',
+  'impulsar tu negocio',
+  'operar con seguridad',
+  'tener claridad legal',
+  'contratos a tu medida',
+  'cumplir la norma',
+  'resolver tus dudas',
+  'prevenir riesgos',
+  'firmar con confianza',
+  'negociar con respaldo',
+];
+
+/**
+ * Frase rotativa del título: cambia cada 4 segundos con una transición vertical.
+ * El subrayado cyan se adapta al ancho de la palabra activa. Respeta
+ * prefers-reduced-motion mostrando una frase fija.
+ */
+function RotatingPhrase({
+  phrases,
+  interval = 4000,
+}: {
+  phrases: string[];
+  interval?: number;
+}) {
+  const reduce = useReducedMotion();
+  const [index, setIndex] = useState(0);
+
+  useEffect(() => {
+    if (reduce) return;
+    const id = window.setInterval(() => {
+      setIndex((i) => (i + 1) % phrases.length);
+    }, interval);
+    return () => window.clearInterval(id);
+  }, [phrases.length, interval, reduce]);
+
+  return (
+    <span className="relative inline-block align-baseline">
+      <span className="relative z-10 inline-block overflow-hidden pb-[0.18em] -mb-[0.18em] font-display-italic font-normal">
+        <AnimatePresence mode="wait" initial={false}>
+          <motion.span
+            key={phrases[index]}
+            initial={reduce ? false : { opacity: 0, y: '0.5em' }}
+            animate={{ opacity: 1, y: 0 }}
+            exit={reduce ? { opacity: 0 } : { opacity: 0, y: '-0.5em' }}
+            transition={{ duration: 0.45, ease: [0.22, 1, 0.36, 1] }}
+            className="inline-block whitespace-nowrap"
+          >
+            {phrases[index]}
+          </motion.span>
+        </AnimatePresence>
+      </span>
+      <svg
+        aria-hidden
+        viewBox="0 0 300 12"
+        preserveAspectRatio="none"
+        className="absolute -bottom-1 left-0 w-full h-[10px] text-[#21C2FF]"
+      >
+        <motion.path
+          d="M2 8 C 60 2, 150 12, 298 4"
+          fill="none"
+          stroke="currentColor"
+          strokeWidth="3"
+          strokeLinecap="round"
+          initial={{ pathLength: 0 }}
+          animate={{ pathLength: 1 }}
+          transition={{ delay: 0.8, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
+        />
+      </svg>
+    </span>
+  );
+}
 
 export function Hero() {
   const { ref: socialRef, inView } = useInView<HTMLDivElement>({ threshold: 0.3 });
@@ -33,7 +107,11 @@ export function Hero() {
           className="flex flex-col gap-7"
         >
           <motion.div variants={fadeInUp}>
-            <Badge variant="cyan" dot icon={<Sparkles className="size-3.5" />}>
+            <Badge
+              variant="cyan"
+              dot
+              className="text-base! px-4! py-1.5!"
+            >
               Inteligencia Legal Colombiana
             </Badge>
           </motion.div>
@@ -43,26 +121,8 @@ export function Hero() {
             className="font-display text-[40px] md:text-[64px] font-medium leading-[1.02] tracking-tight text-[#1A1A1A]"
           >
             Tu aliado legal para{' '}
-            <span className="relative inline-block">
-              <span className="relative z-10 font-display-italic font-normal">crecer sin miedo</span>
-              <svg
-                aria-hidden
-                viewBox="0 0 300 12"
-                preserveAspectRatio="none"
-                className="absolute -bottom-1 left-0 w-full h-[10px] text-[#21C2FF]"
-              >
-                <motion.path
-                  d="M2 8 C 60 2, 150 12, 298 4"
-                  fill="none"
-                  stroke="currentColor"
-                  strokeWidth="3"
-                  strokeLinecap="round"
-                  initial={{ pathLength: 0 }}
-                  animate={{ pathLength: 1 }}
-                  transition={{ delay: 0.8, duration: 0.9, ease: [0.22, 1, 0.36, 1] }}
-                />
-              </svg>
-            </span>
+            <RotatingPhrase phrases={HERO_PHRASES} />
+
           </motion.h1>
 
           <motion.p
@@ -70,7 +130,7 @@ export function Hero() {
             className="max-w-[500px] text-lg md:text-xl font-light text-[#616161] leading-relaxed"
           >
             Resuelve dudas jurídicas, genera contratos personalizados y accede a
-            guías legales. Todo en minutos, sin costos de hora de abogado.
+            guías legales. Todo en minutos, sin abogados.
           </motion.p>
 
           <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-3">

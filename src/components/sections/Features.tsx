@@ -105,7 +105,9 @@ export function Features() {
         className="flex flex-col items-center text-center max-w-3xl mx-auto"
       >
         <motion.div variants={fadeInUp}>
-          <Badge variant="cyan">¿Qué puedes hacer?</Badge>
+          <Badge variant="cyan" className="text-base! px-4! py-1.5!">
+            ¿Qué puedes hacer?
+          </Badge>
         </motion.div>
         <motion.h2
           variants={fadeInUp}
@@ -119,8 +121,8 @@ export function Features() {
           variants={fadeInUp}
           className="mt-4 text-lg font-light text-[#616161]"
         >
-          Una plataforma completa de inteligencia legal diseñada para emprendedores
-          y empresas colombianas.
+          Tu respaldo legal en un solo clic. Inteligencia legal diseñada para
+          personas, profesionales y emprendedores en Colombia.
         </motion.p>
       </motion.div>
 

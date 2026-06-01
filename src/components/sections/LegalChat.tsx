@@ -121,10 +121,18 @@ export function LegalChat() {
   const [messages, setMessages] = useState<ChatMessage[]>(initialMessages);
   const [pending, setPending] = useState(false);
   const [input, setInput] = useState('');
-  const endRef = useRef<HTMLDivElement>(null);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const didMount = useRef(false);
 
   useEffect(() => {
-    endRef.current?.scrollIntoView({ behavior: 'smooth' });
+    // Evita arrastrar toda la página al montar: solo desplaza el contenedor
+    // interno del chat, y nunca en el primer render (mensajes iniciales).
+    if (!didMount.current) {
+      didMount.current = true;
+      return;
+    }
+    const el = scrollRef.current;
+    if (el) el.scrollTo({ top: el.scrollHeight, behavior: 'smooth' });
   }, [messages, pending]);
 
   // Simula la respuesta inicial de la IA cuando el último mensaje es del usuario
@@ -271,7 +279,7 @@ export function LegalChat() {
             </span>
           </div>
 
-          <div className="flex-1 overflow-y-auto px-4 md:px-7 py-6 space-y-5 bg-white">
+          <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 md:px-7 py-6 space-y-5 bg-white">
             <AnimatePresence initial={false}>
               {messages.map((m) => (
                 <motion.div
@@ -348,7 +356,6 @@ export function LegalChat() {
                 </motion.div>
               )}
             </AnimatePresence>
-            <div ref={endRef} />
           </div>
 
           <div className="border-t border-[#E8E8E8] bg-white px-4 md:px-6 pt-3 pb-4">
