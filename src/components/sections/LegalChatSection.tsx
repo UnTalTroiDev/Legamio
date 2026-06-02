@@ -5,7 +5,7 @@ export function LegalChatSection() {
   return (
     <SectionWrapper id="chat-ia" background="surface" fullBleed>
       <div className="mx-auto max-w-[1200px] px-6 mb-10 text-center">
-        <Badge variant="cyan" dot>
+        <Badge variant="cyan" dot className="text-base! px-4! py-1.5!">
           Demo interactiva
         </Badge>
         <h2 className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight">

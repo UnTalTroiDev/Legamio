@@ -102,8 +102,8 @@ export function HowItWorks() {
           >
             <span
               aria-hidden
-              className="absolute -top-6 text-[88px] font-bold leading-none select-none"
-              style={{ color: step.numberColor, opacity: 0.18 }}
+              className="absolute -top-9 text-[112px] font-bold leading-none select-none"
+              style={{ color: step.numberColor, opacity: 0.32 }}
             >
               {step.number}
             </span>

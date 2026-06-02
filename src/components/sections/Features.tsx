@@ -72,10 +72,10 @@ const features: Feature[] = [
   },
   {
     icon: Bell,
-    title: 'Siempre al día',
+    title: 'Siempre vigente',
     description:
-      'Legamio monitorea continuamente cambios normativos y te notifica cuando identifica novedades que pueden impactar tu negocio.',
-    chip: 'Actualizado',
+      'Legamio incorpora continuamente nuevas actualizaciones e información para que accedas a contenido relevante desde una plataforma en constante evolución.',
+    chip: 'Contenido actualizado',
     chipColor: 'orange',
     iconColor: '#FFFFFF',
     iconBg: '#FFA200',
