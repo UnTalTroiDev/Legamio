@@ -6,12 +6,20 @@
   --color-legamio-yellow: #FFDD00;
   --color-legamio-orange: #FFA200;
   --color-legamio-cyan: #21C2FF;
-  --color-legamio-gray: #616161;
   --color-legamio-white: #FFFFFF;
+
+  /* Escala neutral consolidada — usa SIEMPRE un stop de esta rampa,
+     no inventes grises intermedios. Roles indicados por stop. */
+  --color-legamio-ink: #1A1A1A;        /* texto principal / fondos oscuros */
+  --color-legamio-ink-soft: #2A2A2A;   /* hover sobre fondos oscuros */
+  --color-legamio-gray: #616161;       /* texto de cuerpo */
+  --color-legamio-muted: #757575;      /* texto secundario / placeholders */
+  --color-legamio-faint: #B8B8B8;      /* texto tenue sobre fondos oscuros */
+  --color-legamio-border: #E8E8E8;     /* bordes y divisores */
+  --color-legamio-surface: #F8F8F8;    /* superficies y fondos sutiles */
+
+  /* Alias retro-compatible: legamio-dark === legamio-ink */
   --color-legamio-dark: #1A1A1A;
-  --color-legamio-surface: #F8F8F8;
-  --color-legamio-border: #E8E8E8;
-  --color-legamio-muted: #757575;
 
   /* Tints suaves para fondos de iconos */
   --color-legamio-cyan-soft: #F0FBFF;

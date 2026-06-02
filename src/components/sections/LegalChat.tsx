@@ -384,7 +384,7 @@ export function LegalChat() {
                 }}
                 placeholder="Describe tu situación legal…"
                 rows={1}
-                className="flex-1 max-h-32 resize-none bg-transparent text-sm text-[#1A1A1A] placeholder:text-[#9A9A9A] outline-none py-1.5"
+                className="flex-1 max-h-32 resize-none bg-transparent text-sm text-[#1A1A1A] placeholder:text-[#757575] outline-none py-1.5"
               />
               <button
                 type="button"

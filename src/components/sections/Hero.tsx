@@ -46,7 +46,10 @@ function RotatingPhrase({
 
   return (
     <span className="relative inline-block align-baseline">
-      <span className="relative z-10 inline-block overflow-hidden pb-[0.18em] -mb-[0.18em] font-display-italic font-normal">
+      <span
+        className="relative z-10 inline-block overflow-hidden pb-[0.18em] -mb-[0.18em] font-display-italic font-normal"
+        style={{ color: '#B355E8' }}
+      >
         <AnimatePresence mode="wait" initial={false}>
           <motion.span
             key={phrases[index]}
@@ -64,7 +67,7 @@ function RotatingPhrase({
         aria-hidden
         viewBox="0 0 300 12"
         preserveAspectRatio="none"
-        className="absolute -bottom-1 left-0 w-full h-[10px] text-[#21C2FF]"
+        className="absolute -bottom-1 left-0 w-full h-[10px] text-[#ECD155]"
       >
         <motion.path
           d="M2 8 C 60 2, 150 12, 298 4"

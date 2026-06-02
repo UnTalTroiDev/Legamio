@@ -199,7 +199,7 @@ export function ContractGenerator() {
           </AnimatePresence>
         </div>
 
-        <div className="flex items-center justify-between border-t border-[#F0F0F0] px-6 md:px-10 py-5 bg-[#FAFAFA]">
+        <div className="flex items-center justify-between border-t border-[#F0F0F0] px-6 md:px-10 py-5 bg-[#F8F8F8]">
           <Button
             variant="ghost"
             size="md"

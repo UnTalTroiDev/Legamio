@@ -170,7 +170,13 @@ export function Navbar() {
           </ul>
 
           <div className="hidden lg:flex items-center gap-2.5">
-            <Button variant="secondary" size="md">
+            <Button
+              variant="secondary"
+              size="md"
+              onClick={() => {
+                window.location.href = 'https://legamio.com.co/#/login';
+              }}
+            >
               Ingresar
             </Button>
             <Button
@@ -264,7 +270,14 @@ export function Navbar() {
               </ul>
 
               <div className="border-t border-[#E8E8E8] p-5 flex flex-col gap-2.5">
-                <Button variant="secondary" size="md" fullWidth>
+                <Button
+                  variant="secondary"
+                  size="md"
+                  fullWidth
+                  onClick={() => {
+                    window.location.href = 'https://legamio.com.co/#/login';
+                  }}
+                >
                   Ingresar
                 </Button>
                 <Button
