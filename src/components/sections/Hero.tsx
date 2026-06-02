@@ -141,6 +141,9 @@ export function Hero() {
               variant="primary"
               size="lg"
               rightIcon={<ArrowRight className="size-4" />}
+              onClick={() => {
+                window.location.href = 'https://legamio.com.co/#/register';
+              }}
             >
               Empieza gratis
             </Button>

@@ -183,6 +183,9 @@ export function Navbar() {
               variant="primary"
               size="md"
               rightIcon={<ArrowRight className="size-4" />}
+              onClick={() => {
+                window.location.href = 'https://legamio.com.co/#/register';
+              }}
             >
               Empezar gratis
             </Button>
@@ -285,6 +288,9 @@ export function Navbar() {
                   size="md"
                   fullWidth
                   rightIcon={<ArrowRight className="size-4" />}
+                  onClick={() => {
+                    window.location.href = 'https://legamio.com.co/#/register';
+                  }}
                 >
                   Empezar gratis
                 </Button>

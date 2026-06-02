@@ -129,6 +129,9 @@ export function FinalCta() {
             variant="primary"
             size="lg"
             rightIcon={<ArrowRight className="size-4" />}
+            onClick={() => {
+              window.location.href = 'https://legamio.com.co/#/register';
+            }}
           >
             Empezar gratis
           </Button>
