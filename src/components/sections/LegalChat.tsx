@@ -244,10 +244,10 @@ export function LegalChat() {
                 style={{ backgroundColor: '#FF6BFF' }}
                 aria-hidden
               >
-                JA
+                MB
               </span>
               <div className="text-xs leading-tight">
-                <p className="font-bold text-[#1A1A1A]">Jair Álvarez</p>
+                <p className="font-bold text-[#1A1A1A]">Mío Búho</p>
                 <p className="text-[#757575]">Plan Pro</p>
               </div>
             </div>
@@ -398,8 +398,8 @@ export function LegalChat() {
             </div>
 
             <p className="mt-2.5 text-[11px] font-light text-[#757575] text-center">
-              Legamio IA no reemplaza el consejo de un abogado para casos
-              complejos.
+              Legamio es una herramienta de inteligencia legal que no constituye
+              una asesoría legal formal de un abogado.
             </p>
           </div>
         </div>

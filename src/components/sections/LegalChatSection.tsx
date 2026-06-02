@@ -13,7 +13,7 @@ export function LegalChatSection() {
           <span className="font-display-italic font-normal">Legamio IA</span>
         </h2>
         <p className="mt-3 text-lg font-light text-[#616161] max-w-2xl mx-auto">
-          Una vista previa funcional del asistente legal. Escribe, sugiere y mira
+          Accede a una vista previa funcional de Legamio. Escribe, sugiere y mira
           cómo se genera el documento.
         </p>
       </div>

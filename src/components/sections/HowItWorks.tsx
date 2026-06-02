@@ -39,7 +39,7 @@ const steps: Step[] = [
     bg: '#1A1A1A',
     title: 'Obtén tu resultado',
     description:
-      'Recibe tu consulta respondida, contrato generado o guía personalizada. Listo para usar.',
+      'Recibe la respuesta a tu consulta, contrato generado o guía personalizada. Listo para usar.',
   },
 ];
 
@@ -61,7 +61,7 @@ export function HowItWorks() {
         </motion.h2>
         <motion.p
           variants={fadeInUp}
-          className="mt-4 text-lg font-light text-[#616161]"
+          className="mt-4 text-xl font-light text-[#616161]"
         >
           En 3 simples pasos tienes tu solución legal lista
         </motion.p>
@@ -72,7 +72,7 @@ export function HowItWorks() {
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
         variants={staggerContainer}
-        className="relative mt-14 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8"
+        className="relative mt-24 grid grid-cols-1 lg:grid-cols-3 gap-12 lg:gap-8"
       >
         {/* línea conectora desktop */}
         <div
@@ -102,16 +102,16 @@ export function HowItWorks() {
           >
             <span
               aria-hidden
-              className="absolute -top-6 text-[104px] font-bold leading-none select-none tracking-[0.3em] -mr-[0.3em]"
-              style={{ color: step.numberColor, opacity: 0.5 }}
+              className="absolute left-1/2 -translate-x-1/2 -top-[60px] text-[104px] font-bold leading-none select-none tracking-tight"
+              style={{ color: step.numberColor, opacity: 0.4 }}
             >
               {step.number}
             </span>
             <div
-              className="relative z-10 grid size-12 place-items-center rounded-full text-white shadow-[0_8px_24px_rgba(0,0,0,0.10)]"
+              className="relative z-10 grid size-16 place-items-center rounded-full text-white shadow-[0_8px_24px_rgba(0,0,0,0.10)]"
               style={{ backgroundColor: step.bg }}
             >
-              <Icon className="size-5" strokeWidth={2.2} />
+              <Icon className="size-7" strokeWidth={2.2} />
             </div>
             <h3 className="mt-6 text-xl font-bold text-[#1A1A1A]">{step.title}</h3>
             <p className="mt-3 max-w-xs text-[15px] font-light text-[#616161] leading-relaxed">
