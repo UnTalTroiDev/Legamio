@@ -72,7 +72,7 @@ const features: Feature[] = [
   },
   {
     icon: Bell,
-    title: 'Alertas de cambios normativos',
+    title: 'Siempre al día',
     description:
       'Legamio monitorea continuamente cambios normativos y te notifica cuando identifica novedades que pueden impactar tu negocio.',
     chip: 'Actualizado',
@@ -85,7 +85,7 @@ const features: Feature[] = [
     icon: Shield,
     title: 'Confidencialidad garantizada',
     description:
-      'Tus consultas y documentos están cifrados y protegidos. Cumplimos con la Ley 1581 de protección de datos de Colombia.',
+      'Tu información y documentos están protegidos mediante medidas de seguridad diseñadas para resguardar su confidencialidad e integridad.',
     chip: 'Reserva absoluta',
     chipColor: 'gray',
     iconColor: '#FFFFFF',
