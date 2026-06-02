@@ -70,7 +70,7 @@ const plans: Plan[] = [
       'Usuarios ilimitados',
       'Contratos ilimitados',
       'Integración con tus sistemas',
-      'SLA garantizado',
+      'Soporte garantizado',
       'Gerente de cuenta dedicado',
     ],
     cta: 'Hablar con ventas',

@@ -66,8 +66,8 @@ const columns: FooterColumn[] = [
 ];
 
 const socials = [
-  { label: 'LinkedIn', href: 'https://linkedin.com', icon: LinkedinIcon },
-  { label: 'Instagram', href: 'https://instagram.com', icon: InstagramIcon },
+  { label: 'LinkedIn', href: 'https://www.linkedin.com/company/legamio/', icon: LinkedinIcon },
+  { label: 'Instagram', href: 'https://www.instagram.com/legamio.co/', icon: InstagramIcon },
   { label: 'X', href: 'https://x.com', icon: XIcon },
 ];
 
