@@ -102,16 +102,16 @@ export function HowItWorks() {
           >
             <span
               aria-hidden
-              className="absolute -top-20 text-[112px] font-bold leading-none select-none"
-              style={{ color: step.numberColor, opacity: 0.32 }}
+              className="absolute -top-6 text-[104px] font-bold leading-none select-none tracking-[0.3em] -mr-[0.3em]"
+              style={{ color: step.numberColor, opacity: 0.5 }}
             >
               {step.number}
             </span>
             <div
-              className="relative z-10 grid size-16 place-items-center rounded-full text-white shadow-[0_8px_24px_rgba(0,0,0,0.10)]"
+              className="relative z-10 grid size-12 place-items-center rounded-full text-white shadow-[0_8px_24px_rgba(0,0,0,0.10)]"
               style={{ backgroundColor: step.bg }}
             >
-              <Icon className="size-7" strokeWidth={2.2} />
+              <Icon className="size-5" strokeWidth={2.2} />
             </div>
             <h3 className="mt-6 text-xl font-bold text-[#1A1A1A]">{step.title}</h3>
             <p className="mt-3 max-w-xs text-[15px] font-light text-[#616161] leading-relaxed">
