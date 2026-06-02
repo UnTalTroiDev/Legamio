@@ -30,7 +30,7 @@ const features: Feature[] = [
     icon: MessageCircle,
     title: 'Consultas legales con IA',
     description:
-      'Resuelve tus dudas jurídicas al instante. Nuestra IA entiende el contexto colombiano y te da respuestas claras y accionables.',
+      'Resuelve tus dudas jurídicas al instante. Nuestra IA está ajustada al entorno legal colombiano y te da respuestas claras y prácticas.',
     chip: 'Disponible 24/7',
     chipColor: 'cyan',
     iconColor: '#FFFFFF',
@@ -39,9 +39,9 @@ const features: Feature[] = [
   },
   {
     icon: FileText,
-    title: 'Contratos personalizados',
+    title: 'Documentos personalizados',
     description:
-      'Genera contratos laborales, de servicios, societarios y más en minutos. Adaptados a tu caso específico y a la ley colombiana.',
+      'Genera contratos laborales y comerciales, actas de creación y de asambleas y otros documentos legales en minutos, adaptados a tu caso específico y ajustados a la Ley Colombiana.',
     chip: '+30 tipos de contratos',
     chipColor: 'magenta',
     iconColor: '#FFFFFF',
@@ -63,7 +63,7 @@ const features: Feature[] = [
     icon: LayoutDashboard,
     title: 'Gestión centralizada',
     description:
-      'Organiza todos tus documentos, contratos y consultas en un solo lugar. Con historial completo y descarga en PDF.',
+      'Mantén un panel de control con todos tus documentos, contratos y consultas en un solo lugar. Con historial completo y descarga en PDF.',
     chip: 'Organiza todo',
     chipColor: 'cyan',
     iconColor: '#21C2FF',
@@ -74,8 +74,8 @@ const features: Feature[] = [
     icon: Bell,
     title: 'Alertas de cambios normativos',
     description:
-      'Mantente al día con los cambios legales que afectan tu negocio. Recibes notificaciones cuando algo relevante cambia.',
-    chip: 'Proactivo',
+      'Legamio monitorea continuamente cambios normativos y te notifica cuando identifica novedades que pueden impactar tu negocio.',
+    chip: 'Actualizado',
     chipColor: 'orange',
     iconColor: '#FFFFFF',
     iconBg: '#FFA200',
@@ -86,7 +86,7 @@ const features: Feature[] = [
     title: 'Confidencialidad garantizada',
     description:
       'Tus consultas y documentos están cifrados y protegidos. Cumplimos con la Ley 1581 de protección de datos de Colombia.',
-    chip: 'Ley 1581',
+    chip: 'Reserva absoluta',
     chipColor: 'gray',
     iconColor: '#FFFFFF',
     iconBg: '#1A1A1A',

@@ -69,7 +69,7 @@ const plans: Plan[] = [
       'Todo lo de Pro',
       'Usuarios ilimitados',
       'Contratos ilimitados',
-      'API access',
+      'Integración con tus sistemas',
       'SLA garantizado',
       'Gerente de cuenta dedicado',
     ],
