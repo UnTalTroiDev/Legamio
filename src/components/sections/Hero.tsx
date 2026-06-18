@@ -1,9 +1,11 @@
 import { useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, PlayCircle, Send, Sparkles } from 'lucide-react';
 
 import LegamioMark from '@/assets/logo/LegamioMark';
 import { Badge, Button } from '@/components/ui';
+import { goToApp } from '@/lib/config';
 import { useCountUp } from '@/hooks/useCountUp';
 import { useInView } from '@/hooks/useInView';
 import { fadeInUp, staggerContainer, floatY } from '@/lib/animations';
@@ -88,6 +90,7 @@ export function Hero() {
   const { ref: socialRef, inView } = useInView<HTMLDivElement>({ threshold: 0.3 });
   const count = useCountUp(2000, inView, 1800);
   const reduce = useReducedMotion();
+  const navigate = useNavigate();
 
   return (
     <section className="relative overflow-hidden bg-white pt-10 pb-16 md:pt-20 md:pb-24">
@@ -141,9 +144,7 @@ export function Hero() {
               variant="primary"
               size="lg"
               rightIcon={<ArrowRight className="size-4" />}
-              onClick={() => {
-                window.location.href = 'https://legamio.com.co/#/register';
-              }}
+              onClick={() => goToApp('register')}
             >
               Empieza gratis
             </Button>
@@ -151,6 +152,7 @@ export function Hero() {
               variant="ghost"
               size="lg"
               leftIcon={<PlayCircle className="size-5" />}
+              onClick={() => navigate('/#chat-ia')}
             >
               Ver demo
             </Button>

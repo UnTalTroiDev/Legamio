@@ -1,9 +1,11 @@
 import { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { motion, useReducedMotion } from 'framer-motion';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 
 import { Button } from '@/components/ui';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
+import { goToApp } from '@/lib/config';
 
 const confettiColors = ['#21C2FF', '#FF6BFF', '#FFDD00', '#FFA200'];
 
@@ -54,6 +56,7 @@ function ConfettiShape({ color, shape }: { color: string; shape: 'circle' | 'squ
 
 export function FinalCta() {
   const reduce = useReducedMotion();
+  const navigate = useNavigate();
   const [confetti] = useState<ConfettiPiece[]>(buildConfetti);
 
   return (
@@ -129,15 +132,14 @@ export function FinalCta() {
             variant="primary"
             size="lg"
             rightIcon={<ArrowRight className="size-4" />}
-            onClick={() => {
-              window.location.href = 'https://legamio.com.co/#/register';
-            }}
+            onClick={() => goToApp('register')}
           >
             Empezar gratis
           </Button>
           <Button
             size="lg"
             leftIcon={<PlayCircle className="size-5" />}
+            onClick={() => navigate('/#chat-ia')}
             className="!bg-transparent !text-white border border-white/30 hover:!bg-white/10"
           >
             Ver demo

@@ -4,6 +4,7 @@ import { Check, CreditCard, Lock, ShieldCheck } from 'lucide-react';
 
 import { Badge, Button, SectionWrapper } from '@/components/ui';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
+import { contactSales, goToApp } from '@/lib/config';
 import { cn } from '@/lib/utils';
 
 type Cycle = 'monthly' | 'annual';
@@ -307,16 +308,27 @@ export function Pricing() {
                     variant="primary"
                     size="lg"
                     fullWidth
+                    onClick={() => goToApp('register')}
                     className="!bg-white !text-[#21C2FF] !shadow-[0_4px_16px_rgba(0,0,0,0.10)] hover:!brightness-100 hover:!bg-[#F0FBFF]"
                   >
                     {plan.cta}
                   </Button>
                 ) : plan.variant === 'dark' ? (
-                  <Button variant="dark" size="lg" fullWidth>
+                  <Button
+                    variant="dark"
+                    size="lg"
+                    fullWidth
+                    onClick={() => contactSales()}
+                  >
                     {plan.cta}
                   </Button>
                 ) : (
-                  <Button variant="secondary" size="lg" fullWidth>
+                  <Button
+                    variant="secondary"
+                    size="lg"
+                    fullWidth
+                    onClick={() => goToApp('register')}
+                  >
                     {plan.cta}
                   </Button>
                 )}

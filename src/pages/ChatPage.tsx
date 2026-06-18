@@ -6,7 +6,7 @@ const LegalChat = lazy(() => import('@/components/sections/LegalChat'));
 
 export function ChatPage() {
   return (
-    <main className="bg-[#F8F8F8] min-h-[calc(100vh-72px)] py-12">
+    <div className="bg-[#F8F8F8] min-h-[calc(100vh-72px)] py-12">
       <div className="mx-auto max-w-[1200px] px-6 mb-8 text-center">
         <Badge variant="cyan" dot>
           Producto
@@ -22,7 +22,7 @@ export function ChatPage() {
       <Suspense fallback={<SectionSkeleton height={640} background="surface" />}>
         <LegalChat />
       </Suspense>
-    </main>
+    </div>
   );
 }
 

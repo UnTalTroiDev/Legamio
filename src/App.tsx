@@ -12,10 +12,24 @@ import PricingPage from '@/pages/PricingPage';
 import NotFoundPage from '@/pages/NotFound';
 
 function RouteScrollReset() {
-  const { pathname } = useLocation();
+  const { pathname, hash } = useLocation();
   useEffect(() => {
+    // Si la URL trae un ancla (#seccion), desplázate a ese elemento;
+    // si no, vuelve al inicio. Esperamos un frame para que el destino exista.
+    if (hash) {
+      const id = decodeURIComponent(hash.slice(1));
+      const raf = requestAnimationFrame(() => {
+        const el = document.getElementById(id);
+        if (el) {
+          el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+          return;
+        }
+        window.scrollTo({ top: 0, behavior: 'auto' });
+      });
+      return () => cancelAnimationFrame(raf);
+    }
     window.scrollTo({ top: 0, behavior: 'auto' });
-  }, [pathname]);
+  }, [pathname, hash]);
   return null;
 }
 

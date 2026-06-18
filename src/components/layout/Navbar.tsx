@@ -4,16 +4,17 @@ import { AnimatePresence, motion } from 'framer-motion';
 import {
   ArrowRight,
   ChevronDown,
-  FileText,
+  FileSignature,
   Menu,
-  MessageCircle,
-  BookOpen,
+  ScanSearch,
+  Scale,
   X,
 } from 'lucide-react';
 
 import Wordmark from '@/assets/logo/Wordmark';
 import { Button } from '@/components/ui';
 import { cn } from '@/lib/utils';
+import { goToApp } from '@/lib/config';
 
 interface NavLinkItem {
   label: string;
@@ -28,22 +29,22 @@ const links: NavLinkItem[] = [
     to: '#servicios',
     children: [
       {
-        label: 'Consultas IA',
-        to: '/chat',
-        icon: <MessageCircle className="size-4" />,
-        description: 'Resuelve dudas legales al instante',
+        label: 'Smart Due Diligence',
+        to: '/#due-diligence',
+        icon: <ScanSearch className="size-4" />,
+        description: 'Debida diligencia automatizada con IA',
       },
       {
-        label: 'Generador de Contratos',
-        to: '/contratos',
-        icon: <FileText className="size-4" />,
-        description: 'Crea contratos en minutos',
+        label: 'Legamio Legal',
+        to: '/#legamio-legal',
+        icon: <FileSignature className="size-4" />,
+        description: 'Contratos y documentos a tu medida',
       },
       {
-        label: 'Guías Legales',
-        to: '/#guias',
-        icon: <BookOpen className="size-4" />,
-        description: 'Procedimientos paso a paso',
+        label: 'Legamio Litiga',
+        to: '/#legamio-litiga',
+        icon: <Scale className="size-4" />,
+        description: 'Analiza expedientes y tu contraparte (CGP)',
       },
     ],
   },
@@ -173,9 +174,7 @@ export function Navbar() {
             <Button
               variant="secondary"
               size="md"
-              onClick={() => {
-                window.location.href = 'https://legamio.com.co/#/login';
-              }}
+              onClick={() => goToApp('login')}
             >
               Ingresar
             </Button>
@@ -183,9 +182,7 @@ export function Navbar() {
               variant="primary"
               size="md"
               rightIcon={<ArrowRight className="size-4" />}
-              onClick={() => {
-                window.location.href = 'https://legamio.com.co/#/register';
-              }}
+              onClick={() => goToApp('register')}
             >
               Empezar gratis
             </Button>
@@ -277,9 +274,7 @@ export function Navbar() {
                   variant="secondary"
                   size="md"
                   fullWidth
-                  onClick={() => {
-                    window.location.href = 'https://legamio.com.co/#/login';
-                  }}
+                  onClick={() => goToApp('login')}
                 >
                   Ingresar
                 </Button>
@@ -288,9 +283,7 @@ export function Navbar() {
                   size="md"
                   fullWidth
                   rightIcon={<ArrowRight className="size-4" />}
-                  onClick={() => {
-                    window.location.href = 'https://legamio.com.co/#/register';
-                  }}
+                  onClick={() => goToApp('register')}
                 >
                   Empezar gratis
                 </Button>

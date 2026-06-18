@@ -37,11 +37,12 @@ const columns: FooterColumn[] = [
   {
     title: 'Producto',
     links: [
+      { label: 'Smart Due Diligence', to: '/#due-diligence' },
+      { label: 'Legamio Legal', to: '/#legamio-legal' },
+      { label: 'Legamio Litiga', to: '/#legamio-litiga' },
       { label: 'Consultas IA', to: '/chat' },
-      { label: 'Generador de contratos', to: '/contratos' },
       { label: 'Guías legales', to: '/#guias' },
       { label: 'Precios', to: '/precios' },
-      { label: 'Dashboard', to: '/chat' },
     ],
   },
   {

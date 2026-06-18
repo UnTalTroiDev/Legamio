@@ -7,11 +7,11 @@ const ContractGenerator = lazy(
 
 export function ContractsPage() {
   return (
-    <main className="bg-white min-h-[calc(100vh-72px)]">
+    <div className="bg-white min-h-[calc(100vh-72px)]">
       <Suspense fallback={<SectionSkeleton height={680} />}>
         <ContractGenerator />
       </Suspense>
-    </main>
+    </div>
   );
 }
 
