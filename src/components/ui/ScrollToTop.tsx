@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { ArrowUp } from 'lucide-react';
 
 export function ScrollToTop() {
@@ -14,7 +14,7 @@ export function ScrollToTop() {
   return (
     <AnimatePresence>
       {visible && (
-        <motion.button
+        <m.button
           type="button"
           aria-label="Volver arriba"
           onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })}
@@ -22,10 +22,10 @@ export function ScrollToTop() {
           animate={{ opacity: 1, scale: 1, y: 0 }}
           exit={{ opacity: 0, scale: 0.8, y: 8 }}
           transition={{ duration: 0.2 }}
-          className="fixed bottom-6 right-6 z-40 grid size-12 place-items-center rounded-full bg-[#21C2FF] text-white shadow-[0_8px_24px_rgba(33,194,255,0.40)] hover:brightness-110 transition"
+          className="fixed bottom-6 right-6 z-40 grid size-12 place-items-center rounded-full bg-legamio-cyan text-white shadow-[0_8px_24px_rgba(33,194,255,0.40)] hover:brightness-110 transition"
         >
           <ArrowUp className="size-5" />
-        </motion.button>
+        </m.button>
       )}
     </AnimatePresence>
   );

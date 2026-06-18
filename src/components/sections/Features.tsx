@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import {
   Bell,
   BookOpen,
@@ -43,7 +43,7 @@ const products: Feature[] = [
     chipColor: 'cyan',
     iconColor: '#FFFFFF',
     iconBg: '#21C2FF',
-    borderHover: 'hover:border-[#21C2FF]',
+    borderHover: 'hover:border-legamio-cyan',
   },
   {
     id: 'legamio-legal',
@@ -55,7 +55,7 @@ const products: Feature[] = [
     chipColor: 'magenta',
     iconColor: '#FFFFFF',
     iconBg: '#FF6BFF',
-    borderHover: 'hover:border-[#FF6BFF]',
+    borderHover: 'hover:border-legamio-magenta',
   },
   {
     id: 'legamio-litiga',
@@ -67,7 +67,7 @@ const products: Feature[] = [
     chipColor: 'orange',
     iconColor: '#FFFFFF',
     iconBg: '#FFA200',
-    borderHover: 'hover:border-[#FFA200]',
+    borderHover: 'hover:border-legamio-orange',
   },
 ];
 
@@ -82,7 +82,7 @@ const capabilities: Feature[] = [
     chipColor: 'cyan',
     iconColor: '#21C2FF',
     iconBg: '#F0FBFF',
-    borderHover: 'hover:border-[#21C2FF]',
+    borderHover: 'hover:border-legamio-cyan',
   },
   {
     icon: BookOpen,
@@ -93,7 +93,7 @@ const capabilities: Feature[] = [
     chipColor: 'yellow',
     iconColor: '#A88500',
     iconBg: '#FFDD00',
-    borderHover: 'hover:border-[#FFDD00]',
+    borderHover: 'hover:border-legamio-yellow',
   },
   {
     icon: LayoutDashboard,
@@ -104,7 +104,7 @@ const capabilities: Feature[] = [
     chipColor: 'cyan',
     iconColor: '#21C2FF',
     iconBg: '#F0FBFF',
-    borderHover: 'hover:border-[#21C2FF]',
+    borderHover: 'hover:border-legamio-cyan',
   },
   {
     icon: Bell,
@@ -115,7 +115,7 @@ const capabilities: Feature[] = [
     chipColor: 'orange',
     iconColor: '#FFFFFF',
     iconBg: '#FFA200',
-    borderHover: 'hover:border-[#FFA200]',
+    borderHover: 'hover:border-legamio-orange',
   },
   {
     icon: Shield,
@@ -126,7 +126,7 @@ const capabilities: Feature[] = [
     chipColor: 'gray',
     iconColor: '#FFFFFF',
     iconBg: '#1A1A1A',
-    borderHover: 'hover:border-[#1A1A1A]',
+    borderHover: 'hover:border-legamio-ink',
   },
   {
     icon: Headset,
@@ -137,26 +137,26 @@ const capabilities: Feature[] = [
     chipColor: 'magenta',
     iconColor: '#FFFFFF',
     iconBg: '#FF6BFF',
-    borderHover: 'hover:border-[#FF6BFF]',
+    borderHover: 'hover:border-legamio-magenta',
   },
 ];
 
 function FeatureCard({ feature, premium }: { feature: Feature; premium?: boolean }) {
   const { icon: Icon, ...f } = feature;
   return (
-    <motion.article
+    <m.article
       id={f.id}
       variants={fadeInUp}
       whileHover={{ y: -6 }}
       transition={{ duration: 0.3, ease: [0.22, 1, 0.36, 1] }}
       className={cn(
-        'group relative rounded-2xl bg-white border border-[#E8E8E8] p-7 shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.10)] transition-all duration-300',
+        'group relative rounded-2xl bg-white border border-legamio-border p-7 shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.10)] transition-all duration-300',
         f.borderHover,
         f.id && 'scroll-mt-24',
       )}
     >
       {premium && (
-        <span className="absolute right-5 top-5 rounded-full bg-[#F5F5F5] px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.06em] text-[#616161]">
+        <span className="absolute right-5 top-5 rounded-full bg-legamio-gray-soft px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.06em] text-legamio-gray">
           Suscripción
         </span>
       )}
@@ -166,53 +166,53 @@ function FeatureCard({ feature, premium }: { feature: Feature; premium?: boolean
       >
         <Icon className="size-7" strokeWidth={2.2} />
       </div>
-      <h3 className="text-[19px] font-bold text-[#1A1A1A] leading-snug">
+      <h3 className="text-[19px] font-bold text-legamio-ink leading-snug">
         {f.title}
       </h3>
-      <p className="mt-2.5 text-[15px] font-light leading-relaxed text-[#616161]">
+      <p className="mt-2.5 text-[15px] font-light leading-relaxed text-legamio-gray">
         {f.description}
       </p>
       <div className="mt-5">
         <Chip color={f.chipColor}>{f.chip}</Chip>
       </div>
-    </motion.article>
+    </m.article>
   );
 }
 
 export function Features() {
   return (
     <SectionWrapper id="features" background="surface">
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={staggerContainer}
         className="flex flex-col items-center text-center max-w-3xl mx-auto"
       >
-        <motion.div variants={fadeInUp}>
+        <m.div variants={fadeInUp}>
           <Badge variant="cyan" className="text-base! px-4! py-1.5!">
             Nuestros productos
           </Badge>
-        </motion.div>
-        <motion.h2
+        </m.div>
+        <m.h2
           variants={fadeInUp}
-          className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight"
+          className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-legamio-ink leading-[1.05] tracking-tight"
         >
           Tres productos para{' '}
           <span className="font-display-italic font-normal">proteger</span>{' '}
           tu negocio
-        </motion.h2>
-        <motion.p
+        </m.h2>
+        <m.p
           variants={fadeInUp}
-          className="mt-4 text-lg font-light text-[#616161]"
+          className="mt-4 text-lg font-light text-legamio-gray"
         >
           Cada producto está impulsado por su propio RAG jurídico, ajustado al
           entorno legal colombiano. Disponibles por suscripción.
-        </motion.p>
-      </motion.div>
+        </m.p>
+      </m.div>
 
       {/* Productos de suscripción */}
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
@@ -222,9 +222,9 @@ export function Features() {
         {products.map((f) => (
           <FeatureCard key={f.title} feature={f} premium />
         ))}
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.2 }}
@@ -238,26 +238,26 @@ export function Features() {
         >
           Empieza con cualquier producto
         </Button>
-      </motion.div>
+      </m.div>
 
       {/* Capacidades incluidas */}
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={fadeInUp}
         className="mt-20 text-center"
       >
-        <h3 className="font-display text-[24px] md:text-[30px] font-medium text-[#1A1A1A] tracking-tight">
+        <h3 className="font-display text-[24px] md:text-[30px] font-medium text-legamio-ink tracking-tight">
           Incluido en{' '}
           <span className="font-display-italic font-normal">Legamio</span>
         </h3>
-        <p className="mt-3 text-[15px] font-light text-[#616161]">
+        <p className="mt-3 text-[15px] font-light text-legamio-gray">
           Herramientas y garantías transversales a todos los productos.
         </p>
-      </motion.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.1 }}
@@ -267,7 +267,7 @@ export function Features() {
         {capabilities.map((f) => (
           <FeatureCard key={f.title} feature={f} />
         ))}
-      </motion.div>
+      </m.div>
     </SectionWrapper>
   );
 }

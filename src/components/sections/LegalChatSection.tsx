@@ -8,11 +8,11 @@ export function LegalChatSection() {
         <Badge variant="cyan" dot className="text-base! px-4! py-1.5!">
           Demo interactiva
         </Badge>
-        <h2 className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight">
+        <h2 className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-legamio-ink leading-[1.05] tracking-tight">
           Habla con{' '}
           <span className="font-display-italic font-normal">Legamio IA</span>
         </h2>
-        <p className="mt-3 text-lg font-light text-[#616161] max-w-2xl mx-auto">
+        <p className="mt-3 text-lg font-light text-legamio-gray max-w-2xl mx-auto">
           Accede a una vista previa funcional de Legamio. Escribe, sugiere y mira
           cómo se genera el documento.
         </p>

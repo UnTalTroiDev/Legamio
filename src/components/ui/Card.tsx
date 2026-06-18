@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { motion, type HTMLMotionProps } from 'framer-motion';
+import { m, type HTMLMotionProps } from 'framer-motion';
 import { cn } from '@/lib/utils';
 
 export type AccentColor = 'cyan' | 'magenta' | 'yellow' | 'orange' | 'gray' | 'dark';
@@ -11,12 +11,12 @@ export interface CardProps extends HTMLMotionProps<'div'> {
 }
 
 const hoverBorder: Record<AccentColor, string> = {
-  cyan: 'hover:border-[#21C2FF]',
-  magenta: 'hover:border-[#FF6BFF]',
-  yellow: 'hover:border-[#FFDD00]',
-  orange: 'hover:border-[#FFA200]',
-  gray: 'hover:border-[#616161]',
-  dark: 'hover:border-[#1A1A1A]',
+  cyan: 'hover:border-legamio-cyan',
+  magenta: 'hover:border-legamio-magenta',
+  yellow: 'hover:border-legamio-yellow',
+  orange: 'hover:border-legamio-orange',
+  gray: 'hover:border-legamio-gray',
+  dark: 'hover:border-legamio-ink',
 };
 
 const padMap = {
@@ -31,10 +31,10 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
   ref,
 ) {
   return (
-    <motion.div
+    <m.div
       ref={ref}
       className={cn(
-        'rounded-2xl bg-white border border-[#E8E8E8] shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out',
+        'rounded-2xl bg-white border border-legamio-border shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-all duration-300 ease-out',
         padMap[padding],
         hoverable &&
           cn(
@@ -46,7 +46,7 @@ export const Card = forwardRef<HTMLDivElement, CardProps>(function Card(
       {...props}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 });
 

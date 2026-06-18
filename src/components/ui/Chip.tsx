@@ -10,12 +10,12 @@ export interface ChipProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 const colorMap: Record<ChipColor, string> = {
-  cyan: 'bg-[#F0FBFF] text-[#21C2FF] border-[#21C2FF]/30',
-  magenta: 'bg-[#FFF0FF] text-[#FF6BFF] border-[#FF6BFF]/30',
-  yellow: 'bg-[#FFFDF0] text-[#A88500] border-[#FFDD00]/50',
-  orange: 'bg-[#FFF8F0] text-[#FFA200] border-[#FFA200]/30',
-  gray: 'bg-[#F5F5F5] text-[#616161] border-[#E8E8E8]',
-  dark: 'bg-[#1A1A1A] text-white border-[#1A1A1A]',
+  cyan: 'bg-legamio-cyan-soft text-legamio-cyan border-legamio-cyan/30',
+  magenta: 'bg-legamio-magenta-soft text-legamio-magenta border-legamio-magenta/30',
+  yellow: 'bg-legamio-yellow-soft text-[#A88500] border-legamio-yellow/50',
+  orange: 'bg-legamio-orange-soft text-legamio-orange border-legamio-orange/30',
+  gray: 'bg-legamio-gray-soft text-legamio-gray border-legamio-border',
+  dark: 'bg-legamio-ink text-white border-legamio-ink',
 };
 
 export function Chip({
@@ -31,7 +31,7 @@ export function Chip({
       className={cn(
         'inline-flex items-center gap-1.5 rounded-full border px-3 py-1 text-[13px] font-normal transition-colors',
         colorMap[color],
-        selected && 'ring-2 ring-offset-1 ring-[#21C2FF]',
+        selected && 'ring-2 ring-offset-1 ring-legamio-cyan',
         className,
       )}
       {...props}

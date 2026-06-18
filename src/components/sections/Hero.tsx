@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { AnimatePresence, motion, useReducedMotion } from 'framer-motion';
+import { AnimatePresence, m, useReducedMotion } from 'framer-motion';
 import { ArrowRight, PlayCircle, Send, Sparkles } from 'lucide-react';
 
 import LegamioMark from '@/assets/logo/LegamioMark';
@@ -53,7 +53,7 @@ function RotatingPhrase({
         style={{ color: '#B355E8' }}
       >
         <AnimatePresence mode="wait" initial={false}>
-          <motion.span
+          <m.span
             key={phrases[index]}
             initial={reduce ? false : { opacity: 0, y: '0.5em' }}
             animate={{ opacity: 1, y: 0 }}
@@ -62,7 +62,7 @@ function RotatingPhrase({
             className="inline-block whitespace-nowrap"
           >
             {phrases[index]}
-          </motion.span>
+          </m.span>
         </AnimatePresence>
       </span>
       <svg
@@ -71,7 +71,7 @@ function RotatingPhrase({
         preserveAspectRatio="none"
         className="absolute -bottom-1 left-0 w-full h-[10px] text-[#ECD155]"
       >
-        <motion.path
+        <m.path
           d="M2 8 C 60 2, 150 12, 298 4"
           fill="none"
           stroke="currentColor"
@@ -106,13 +106,13 @@ export function Hero() {
       />
 
       <div className="relative mx-auto grid w-full max-w-[1200px] grid-cols-1 lg:grid-cols-2 items-center gap-12 px-6">
-        <motion.div
+        <m.div
           initial="hidden"
           animate="visible"
           variants={staggerContainer}
           className="flex flex-col gap-7"
         >
-          <motion.div variants={fadeInUp}>
+          <m.div variants={fadeInUp}>
             <Badge
               variant="cyan"
               dot
@@ -120,26 +120,26 @@ export function Hero() {
             >
               Inteligencia Legal Colombiana
             </Badge>
-          </motion.div>
+          </m.div>
 
-          <motion.h1
+          <m.h1
             variants={fadeInUp}
-            className="font-display text-[40px] md:text-[64px] font-medium leading-[1.02] tracking-tight text-[#1A1A1A]"
+            className="font-display text-[40px] md:text-[64px] font-medium leading-[1.02] tracking-tight text-legamio-ink"
           >
             Tu aliado legal para{' '}
             <RotatingPhrase phrases={HERO_PHRASES} />
 
-          </motion.h1>
+          </m.h1>
 
-          <motion.p
+          <m.p
             variants={fadeInUp}
-            className="max-w-[500px] text-lg md:text-xl font-light text-[#616161] leading-relaxed"
+            className="max-w-[500px] text-lg md:text-xl font-light text-legamio-gray leading-relaxed"
           >
             Resuelve dudas jurídicas, genera contratos personalizados y accede a
             guías legales. Todo en minutos, sin abogados.
-          </motion.p>
+          </m.p>
 
-          <motion.div variants={fadeInUp} className="flex flex-wrap items-center gap-3">
+          <m.div variants={fadeInUp} className="flex flex-wrap items-center gap-3">
             <Button
               variant="primary"
               size="lg"
@@ -156,32 +156,32 @@ export function Hero() {
             >
               Ver demo
             </Button>
-          </motion.div>
+          </m.div>
 
-          <motion.div
+          <m.div
             ref={socialRef}
             variants={fadeInUp}
             className="mt-2 grid grid-cols-2 gap-x-8 gap-y-2 max-w-md"
           >
-            <div className="border-l-2 border-[#21C2FF] pl-4">
-              <p className="font-display text-[36px] md:text-[40px] font-medium leading-none text-[#1A1A1A] tracking-tight">
+            <div className="border-l-2 border-legamio-cyan pl-4">
+              <p className="font-display text-[36px] md:text-[40px] font-medium leading-none text-legamio-ink tracking-tight">
                 {count.toLocaleString('es-CO')}
-                <span className="font-display-italic text-[#21C2FF]">+</span>
+                <span className="font-display-italic text-legamio-cyan">+</span>
               </p>
-              <p className="mt-2 text-[13px] uppercase tracking-[0.08em] text-[#616161]">
+              <p className="mt-2 text-[13px] uppercase tracking-[0.08em] text-legamio-gray">
                 Empresas activas
               </p>
             </div>
-            <div className="border-l-2 border-[#1A1A1A] pl-4">
-              <p className="font-display text-[36px] md:text-[40px] font-medium leading-none text-[#1A1A1A] tracking-tight">
-                12<span className="font-display-italic text-[#616161]">s</span>
+            <div className="border-l-2 border-legamio-ink pl-4">
+              <p className="font-display text-[36px] md:text-[40px] font-medium leading-none text-legamio-ink tracking-tight">
+                12<span className="font-display-italic text-legamio-gray">s</span>
               </p>
-              <p className="mt-2 text-[13px] uppercase tracking-[0.08em] text-[#616161]">
+              <p className="mt-2 text-[13px] uppercase tracking-[0.08em] text-legamio-gray">
                 Contrato promedio
               </p>
             </div>
-          </motion.div>
-        </motion.div>
+          </m.div>
+        </m.div>
 
         {/* Mockup chat */}
         <div className="relative">
@@ -197,37 +197,37 @@ export function Hero() {
             style={{ backgroundColor: '#FF6BFF', opacity: 0.12 }}
           />
 
-          <motion.div
+          <m.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.2, ease: [0.22, 1, 0.36, 1] }}
             className="relative"
           >
-            <motion.div
+            <m.div
               animate={reduce ? undefined : floatY(12, 4)}
-              className="relative rounded-3xl bg-white border border-[#E8E8E8] shadow-[0_16px_48px_rgba(0,0,0,0.14)] overflow-hidden"
+              className="relative rounded-3xl bg-white border border-legamio-border shadow-[0_16px_48px_rgba(0,0,0,0.14)] overflow-hidden"
             >
               <div className="flex items-center justify-between gap-3 border-b border-[#F0F0F0] px-5 py-4">
                 <div className="flex items-center gap-2">
                   <LegamioMark size={28} />
-                  <span className="font-bold text-[#1A1A1A] text-sm">Legamio IA</span>
+                  <span className="font-bold text-legamio-ink text-sm">Legamio IA</span>
                 </div>
-                <span className="flex items-center gap-1.5 text-[11px] text-[#21C2FF] font-bold">
+                <span className="flex items-center gap-1.5 text-[11px] text-legamio-cyan font-bold">
                   <span className="relative inline-flex size-2">
-                    <span className="absolute inset-0 animate-ping rounded-full bg-[#21C2FF] opacity-70" />
-                    <span className="relative inline-block size-2 rounded-full bg-[#21C2FF]" />
+                    <span className="absolute inset-0 animate-ping rounded-full bg-legamio-cyan opacity-70" />
+                    <span className="relative inline-block size-2 rounded-full bg-legamio-cyan" />
                   </span>
                   En línea
                 </span>
               </div>
 
               <div className="flex flex-col gap-4 px-5 py-6 bg-white">
-                <div className="self-end max-w-[80%] rounded-2xl rounded-br-md bg-[#21C2FF] px-4 py-3 text-white text-sm shadow-[0_4px_12px_rgba(33,194,255,0.25)]">
+                <div className="self-end max-w-[80%] rounded-2xl rounded-br-md bg-legamio-cyan px-4 py-3 text-white text-sm shadow-[0_4px_12px_rgba(33,194,255,0.25)]">
                   ¿Qué contrato necesito para un empleado por horas?
                 </div>
 
-                <div className="self-start max-w-[88%] rounded-2xl rounded-bl-md border border-[#E8F8FF] bg-[#F8F8F8] px-4 py-3 text-[#1A1A1A] text-sm">
-                  <div className="flex items-center gap-2 mb-2 text-[12px] text-[#616161]">
+                <div className="self-start max-w-[88%] rounded-2xl rounded-bl-md border border-[#E8F8FF] bg-legamio-surface px-4 py-3 text-legamio-ink text-sm">
+                  <div className="flex items-center gap-2 mb-2 text-[12px] text-legamio-gray">
                     <LegamioMark size={16} />
                     <span className="font-bold">Legamio IA</span>
                   </div>
@@ -238,22 +238,22 @@ export function Hero() {
               </div>
 
               <div className="flex items-center gap-2 border-t border-[#F0F0F0] bg-white px-3 py-3">
-                <div className="flex-1 rounded-full bg-[#F8F8F8] px-4 py-2.5 text-sm text-[#757575]">
+                <div className="flex-1 rounded-full bg-legamio-surface px-4 py-2.5 text-sm text-legamio-muted">
                   Describe tu situación legal…
                 </div>
                 <button
                   type="button"
                   aria-label="Enviar"
-                  className="grid size-10 place-items-center rounded-full bg-[#21C2FF] text-white shadow-[0_4px_12px_rgba(33,194,255,0.35)] hover:brightness-110 transition"
+                  className="grid size-10 place-items-center rounded-full bg-legamio-cyan text-white shadow-[0_4px_12px_rgba(33,194,255,0.35)] hover:brightness-110 transition"
                 >
                   <Send className="size-4" />
                 </button>
               </div>
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
 
           {/* Tarjeta flotante: independiente del chat (flota en contra-fase) */}
-          <motion.div
+          <m.div
             initial={{ opacity: 0, x: 20 }}
             animate={
               reduce
@@ -269,18 +269,18 @@ export function Hero() {
                     y: { duration: 4, repeat: Infinity, ease: 'easeInOut', delay: 1.2 },
                   }
             }
-            className="absolute -bottom-6 -left-6 z-10 hidden sm:flex items-center gap-3 rounded-2xl bg-white border border-[#E8E8E8] shadow-[0_8px_24px_rgba(0,0,0,0.10)] px-4 py-3"
+            className="absolute -bottom-6 -left-6 z-10 hidden sm:flex items-center gap-3 rounded-2xl bg-white border border-legamio-border shadow-[0_8px_24px_rgba(0,0,0,0.10)] px-4 py-3"
           >
-            <span className="grid size-9 place-items-center rounded-full bg-[#FFFDF0] text-[#A88500]">
+            <span className="grid size-9 place-items-center rounded-full bg-legamio-yellow-soft text-[#A88500]">
               <Sparkles className="size-4" />
             </span>
             <div className="text-xs">
-              <p className="font-bold text-[#1A1A1A]">Contrato listo</p>
-              <p className="text-[#616161]">
-                en <span className="font-display-italic font-medium text-[#1A1A1A]">12s</span>
+              <p className="font-bold text-legamio-ink">Contrato listo</p>
+              <p className="text-legamio-gray">
+                en <span className="font-display-italic font-medium text-legamio-ink">12s</span>
               </p>
             </div>
-          </motion.div>
+          </m.div>
         </div>
       </div>
     </section>

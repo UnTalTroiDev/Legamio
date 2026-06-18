@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { motion, type Variants } from 'framer-motion';
+import { m, type Variants } from 'framer-motion';
 import { fadeInUp, staggerContainer } from '@/lib/animations';
 
 export interface MotionRevealProps {
@@ -13,7 +13,7 @@ export interface MotionRevealProps {
 
 /**
  * Wrapper que dispara una animación de entrada al hacer scroll usando
- * `whileInView` de framer-motion. Comparte `staggerContainer` para listas.
+ * `whileInView` de framer-m. Comparte `staggerContainer` para listas.
  */
 export function MotionReveal({
   children,
@@ -24,7 +24,7 @@ export function MotionReveal({
   amount = 0.2,
 }: MotionRevealProps) {
   return (
-    <motion.div
+    <m.div
       className={className}
       initial="hidden"
       whileInView="visible"
@@ -33,7 +33,7 @@ export function MotionReveal({
       transition={{ delay }}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 
@@ -44,7 +44,7 @@ export function MotionStagger({
   amount = 0.15,
 }: Omit<MotionRevealProps, 'variants' | 'delay'>) {
   return (
-    <motion.div
+    <m.div
       className={className}
       initial="hidden"
       whileInView="visible"
@@ -52,7 +52,7 @@ export function MotionStagger({
       variants={staggerContainer}
     >
       {children}
-    </motion.div>
+    </m.div>
   );
 }
 

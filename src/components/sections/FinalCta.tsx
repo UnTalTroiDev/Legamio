@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
-import { motion, useReducedMotion } from 'framer-motion';
+import { m, useReducedMotion } from 'framer-motion';
 import { ArrowRight, PlayCircle } from 'lucide-react';
 
 import { Button } from '@/components/ui';
@@ -62,12 +62,12 @@ export function FinalCta() {
   return (
     <section
       id="cta-final"
-      className="relative overflow-hidden bg-[#1A1A1A] text-white py-20 md:py-28"
+      className="relative overflow-hidden bg-legamio-ink text-white py-20 md:py-28"
     >
       {/* Confetti */}
       <div className="pointer-events-none absolute inset-0">
         {confetti.map((c, i) => (
-          <motion.div
+          <m.div
             key={i}
             initial={{ opacity: 0, y: -12 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -76,7 +76,7 @@ export function FinalCta() {
             className="absolute"
             style={{ top: c.top, left: c.left }}
           >
-            <motion.div
+            <m.div
               animate={
                 reduce
                   ? { rotate: c.rotate }
@@ -97,34 +97,34 @@ export function FinalCta() {
               }
             >
               <ConfettiShape color={c.color} shape={c.shape} />
-            </motion.div>
-          </motion.div>
+            </m.div>
+          </m.div>
         ))}
       </div>
 
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={staggerContainer}
         className="relative mx-auto max-w-3xl px-6 text-center"
       >
-        <motion.h2
+        <m.h2
           variants={fadeInUp}
           className="font-display text-[36px] md:text-[52px] font-medium leading-[1.05] tracking-tight text-white"
         >
           ¿Listo para{' '}
           <span className="font-display-italic font-normal">proteger</span>{' '}
           tu negocio?
-        </motion.h2>
-        <motion.p
+        </m.h2>
+        <m.p
           variants={fadeInUp}
-          className="mt-5 text-lg font-light text-[#B8B8B8]"
+          className="mt-5 text-lg font-light text-legamio-faint"
         >
           Únete a más de 2,000 empresas que ya usan Legamio para resolver su día
           a día legal.
-        </motion.p>
-        <motion.div
+        </m.p>
+        <m.div
           variants={fadeInUp}
           className="mt-9 flex flex-wrap items-center justify-center gap-3"
         >
@@ -144,8 +144,8 @@ export function FinalCta() {
           >
             Ver demo
           </Button>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
     </section>
   );
 }

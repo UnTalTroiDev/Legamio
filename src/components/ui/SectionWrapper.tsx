@@ -12,9 +12,9 @@ export interface SectionWrapperProps extends HTMLAttributes<HTMLElement> {
 }
 
 const bgMap: Record<SectionBackground, string> = {
-  white: 'bg-white text-[#616161]',
-  surface: 'bg-[#F8F8F8] text-[#616161]',
-  dark: 'bg-[#1A1A1A] text-white',
+  white: 'bg-white text-legamio-gray',
+  surface: 'bg-legamio-surface text-legamio-gray',
+  dark: 'bg-legamio-ink text-white',
 };
 
 export function SectionWrapper({

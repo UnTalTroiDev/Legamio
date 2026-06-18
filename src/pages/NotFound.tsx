@@ -31,17 +31,17 @@ export function NotFound() {
         }}
       />
       <div className="relative mx-auto max-w-xl text-center">
-        <span className="inline-grid size-16 place-items-center rounded-2xl bg-[#F0FBFF] text-[#21C2FF]">
+        <span className="inline-grid size-16 place-items-center rounded-2xl bg-legamio-cyan-soft text-legamio-cyan">
           <FileQuestion className="size-7" strokeWidth={2} />
         </span>
-        <p className="mt-7 font-display text-[88px] md:text-[120px] font-medium leading-none tracking-tight text-[#1A1A1A]">
-          4<span className="font-display-italic text-[#21C2FF]">0</span>4
+        <p className="mt-7 font-display text-[88px] md:text-[120px] font-medium leading-none tracking-tight text-legamio-ink">
+          4<span className="font-display-italic text-legamio-cyan">0</span>4
         </p>
-        <h1 className="mt-4 font-display text-[28px] md:text-[36px] font-medium leading-tight tracking-tight text-[#1A1A1A]">
+        <h1 className="mt-4 font-display text-[28px] md:text-[36px] font-medium leading-tight tracking-tight text-legamio-ink">
           Esta página{' '}
           <span className="font-display-italic font-normal">no existe</span>
         </h1>
-        <p className="mt-3 text-[#757575] font-light">
+        <p className="mt-3 text-legamio-muted font-light">
           La dirección que buscas se mudó o nunca llegó a existir. Volvamos al
           camino correcto.
         </p>

@@ -1,4 +1,4 @@
-import { motion } from 'framer-motion';
+import { m } from 'framer-motion';
 import { CheckCircle, Cpu, MessageSquare, type LucideIcon } from 'lucide-react';
 
 import { SectionWrapper } from '@/components/ui';
@@ -46,28 +46,28 @@ const steps: Step[] = [
 export function HowItWorks() {
   return (
     <SectionWrapper id="como-funciona" background="white">
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={staggerContainer}
         className="flex flex-col items-center text-center max-w-2xl mx-auto"
       >
-        <motion.h2
+        <m.h2
           variants={fadeInUp}
-          className="font-display text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight"
+          className="font-display text-[32px] md:text-[46px] font-medium text-legamio-ink leading-[1.05] tracking-tight"
         >
           ¿Cómo <span className="font-display-italic font-normal">funciona</span>?
-        </motion.h2>
-        <motion.p
+        </m.h2>
+        <m.p
           variants={fadeInUp}
-          className="mt-4 text-xl font-light text-[#616161]"
+          className="mt-4 text-xl font-light text-legamio-gray"
         >
           En 3 simples pasos tienes tu solución legal lista
-        </motion.p>
-      </motion.div>
+        </m.p>
+      </m.div>
 
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
@@ -77,9 +77,9 @@ export function HowItWorks() {
         {/* línea conectora desktop */}
         <div
           aria-hidden
-          className="hidden lg:block absolute top-8 left-[16.6%] right-[16.6%] h-px border-t border-dashed border-[#E8E8E8]"
+          className="hidden lg:block absolute top-8 left-[16.6%] right-[16.6%] h-px border-t border-dashed border-legamio-border"
         >
-          <motion.div
+          <m.div
             initial={{ scaleX: 0 }}
             whileInView={{ scaleX: 1 }}
             viewport={{ once: true, amount: 0.5 }}
@@ -95,7 +95,7 @@ export function HowItWorks() {
         </div>
 
         {steps.map(({ icon: Icon, ...step }, idx) => (
-          <motion.div
+          <m.div
             key={step.number}
             variants={fadeInUp}
             className="relative flex flex-col items-center text-center px-4"
@@ -113,20 +113,20 @@ export function HowItWorks() {
             >
               <Icon className="size-7" strokeWidth={2.2} />
             </div>
-            <h3 className="mt-6 text-xl font-bold text-[#1A1A1A]">{step.title}</h3>
-            <p className="mt-3 max-w-xs text-[15px] font-light text-[#616161] leading-relaxed">
+            <h3 className="mt-6 text-xl font-bold text-legamio-ink">{step.title}</h3>
+            <p className="mt-3 max-w-xs text-[15px] font-light text-legamio-gray leading-relaxed">
               {step.description}
             </p>
 
             {idx < steps.length - 1 && (
               <div
                 aria-hidden
-                className="lg:hidden mt-8 h-10 w-px border-l border-dashed border-[#E8E8E8]"
+                className="lg:hidden mt-8 h-10 w-px border-l border-dashed border-legamio-border"
               />
             )}
-          </motion.div>
+          </m.div>
         ))}
-      </motion.div>
+      </m.div>
     </SectionWrapper>
   );
 }

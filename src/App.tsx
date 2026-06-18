@@ -35,7 +35,7 @@ function RouteScrollReset() {
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col bg-white text-[#616161]">
+    <div className="min-h-screen flex flex-col bg-white text-legamio-gray">
       <RouteScrollReset />
       <Navbar />
       <main className="flex-1">

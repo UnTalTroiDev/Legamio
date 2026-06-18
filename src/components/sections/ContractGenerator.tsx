@@ -1,5 +1,5 @@
 import { useMemo, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import {
   Briefcase,
   Building,
@@ -112,16 +112,16 @@ export function ContractGenerator() {
     <SectionWrapper id="contratos" background="white">
       <div className="mx-auto max-w-2xl text-center mb-10">
         <Badge variant="cyan" className="text-base! px-4! py-1.5!">Generador inteligente</Badge>
-        <h2 className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight">
+        <h2 className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-legamio-ink leading-[1.05] tracking-tight">
           Crea tu documento en{' '}
           <span className="font-display-italic font-normal">minutos</span>
         </h2>
-        <p className="mt-3 text-lg font-light text-[#616161]">
+        <p className="mt-3 text-lg font-light text-legamio-gray">
           Sin tecnicismos, sin esperas. Solo describe lo que necesitas.
         </p>
       </div>
 
-      <div className="mx-auto max-w-[800px] rounded-3xl bg-white border border-[#E8E8E8] shadow-[0_16px_48px_rgba(0,0,0,0.14)] overflow-hidden">
+      <div className="mx-auto max-w-[800px] rounded-3xl bg-white border border-legamio-border shadow-[0_16px_48px_rgba(0,0,0,0.14)] overflow-hidden">
         {/* Progress */}
         <div className="px-6 md:px-10 pt-8 pb-6 border-b border-[#F0F0F0]">
           <ol className="flex items-center gap-2">
@@ -133,9 +133,9 @@ export function ContractGenerator() {
                   <div
                     className={cn(
                       'grid size-9 place-items-center rounded-full border text-xs font-bold shrink-0 transition-colors',
-                      completed && 'bg-[#21C2FF] border-[#21C2FF] text-white',
-                      active && !completed && 'bg-[#21C2FF] border-[#21C2FF] text-white shadow-[0_4px_12px_rgba(33,194,255,0.30)]',
-                      !active && !completed && 'border-[#E8E8E8] bg-white text-[#757575]',
+                      completed && 'bg-legamio-cyan border-legamio-cyan text-white',
+                      active && !completed && 'bg-legamio-cyan border-legamio-cyan text-white shadow-[0_4px_12px_rgba(33,194,255,0.30)]',
+                      !active && !completed && 'border-legamio-border bg-white text-legamio-muted',
                     )}
                     aria-current={active ? 'step' : undefined}
                   >
@@ -144,7 +144,7 @@ export function ContractGenerator() {
                   <span
                     className={cn(
                       'text-sm hidden sm:inline',
-                      active ? 'font-bold text-[#1A1A1A]' : 'text-[#757575]',
+                      active ? 'font-bold text-legamio-ink' : 'text-legamio-muted',
                     )}
                   >
                     {label}
@@ -153,7 +153,7 @@ export function ContractGenerator() {
                     <span
                       className={cn(
                         'flex-1 h-px',
-                        completed ? 'bg-[#21C2FF]' : 'bg-[#E8E8E8]',
+                        completed ? 'bg-legamio-cyan' : 'bg-legamio-border',
                       )}
                     />
                   )}
@@ -165,7 +165,7 @@ export function ContractGenerator() {
 
         <div className="relative overflow-hidden">
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={step}
               initial={{ opacity: 0, x: 20 }}
               animate={{ opacity: 1, x: 0 }}
@@ -195,11 +195,11 @@ export function ContractGenerator() {
                   details={details}
                 />
               )}
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
 
-        <div className="flex items-center justify-between border-t border-[#F0F0F0] px-6 md:px-10 py-5 bg-[#F8F8F8]">
+        <div className="flex items-center justify-between border-t border-[#F0F0F0] px-6 md:px-10 py-5 bg-legamio-surface">
           <Button
             variant="ghost"
             size="md"
@@ -243,8 +243,8 @@ function StepType({
 }) {
   return (
     <div>
-      <h3 className="text-lg font-bold text-[#1A1A1A]">¿Qué contrato necesitas?</h3>
-      <p className="text-sm text-[#616161] mt-1">
+      <h3 className="text-lg font-bold text-legamio-ink">¿Qué contrato necesitas?</h3>
+      <p className="text-sm text-legamio-gray mt-1">
         Selecciona el tipo más cercano a tu situación.
       </p>
       <div className="mt-6 grid grid-cols-2 md:grid-cols-3 gap-3">
@@ -258,13 +258,13 @@ function StepType({
               className={cn(
                 'relative rounded-2xl border p-4 text-left transition-all',
                 isSelected
-                  ? 'border-2 border-[#21C2FF] bg-[#F0FBFF] shadow-[0_4px_12px_rgba(33,194,255,0.18)]'
-                  : 'border-[#E8E8E8] bg-white hover:border-[#21C2FF]/40',
+                  ? 'border-2 border-legamio-cyan bg-legamio-cyan-soft shadow-[0_4px_12px_rgba(33,194,255,0.18)]'
+                  : 'border-legamio-border bg-white hover:border-legamio-cyan/40',
               )}
               aria-pressed={isSelected}
             >
               {isSelected && (
-                <span className="absolute top-2.5 right-2.5 grid size-5 place-items-center rounded-full bg-[#21C2FF] text-white">
+                <span className="absolute top-2.5 right-2.5 grid size-5 place-items-center rounded-full bg-legamio-cyan text-white">
                   <Check className="size-3" strokeWidth={3} />
                 </span>
               )}
@@ -274,7 +274,7 @@ function StepType({
               >
                 <Icon className="size-5" />
               </span>
-              <p className="text-sm font-bold text-[#1A1A1A] leading-snug">{label}</p>
+              <p className="text-sm font-bold text-legamio-ink leading-snug">{label}</p>
             </button>
           );
         })}
@@ -299,7 +299,7 @@ function PartyForm({
 
   return (
     <div className="flex flex-col gap-3.5">
-      <h4 className="text-sm font-bold text-[#1A1A1A]">{title}</h4>
+      <h4 className="text-sm font-bold text-legamio-ink">{title}</h4>
       <Input label="Nombre completo / Razón social" value={data.nombre} onChange={set('nombre')} required />
       <Input label="NIT / Cédula" value={data.documento} onChange={set('documento')} required />
       <Input label="Dirección" value={data.direccion} onChange={set('direccion')} />
@@ -328,8 +328,8 @@ function StepParties({
 }) {
   return (
     <div>
-      <h3 className="text-lg font-bold text-[#1A1A1A]">Partes del contrato</h3>
-      <p className="text-sm text-[#616161] mt-1">
+      <h3 className="text-lg font-bold text-legamio-ink">Partes del contrato</h3>
+      <p className="text-sm text-legamio-gray mt-1">
         Datos de las personas o empresas que firmarán.
       </p>
       <div className="mt-6 grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -349,8 +349,8 @@ function StepDetails({
 }) {
   return (
     <div>
-      <h3 className="text-lg font-bold text-[#1A1A1A]">Detalles específicos</h3>
-      <p className="text-sm text-[#616161] mt-1">
+      <h3 className="text-lg font-bold text-legamio-ink">Detalles específicos</h3>
+      <p className="text-sm text-legamio-gray mt-1">
         Ajusta las cláusulas clave de tu contrato.
       </p>
       <div className="mt-6 flex flex-col gap-4">
@@ -359,18 +359,18 @@ function StepDetails({
             value={details.objeto}
             onChange={(e) => setDetails({ ...details, objeto: e.target.value })}
             rows={3}
-            className="w-full resize-none rounded-lg border border-[#E8E8E8] bg-white px-3 py-2.5 text-sm text-[#1A1A1A] outline-none transition-colors focus:border-[#21C2FF]"
+            className="w-full resize-none rounded-lg border border-legamio-border bg-white px-3 py-2.5 text-sm text-legamio-ink outline-none transition-colors focus:border-legamio-cyan"
           />
         </Field>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           <Field label="Valor (COP)">
-            <div className="flex items-center rounded-lg border border-[#E8E8E8] bg-white px-3 focus-within:border-[#21C2FF]">
-              <span className="text-sm text-[#757575] mr-1">$</span>
+            <div className="flex items-center rounded-lg border border-legamio-border bg-white px-3 focus-within:border-legamio-cyan">
+              <span className="text-sm text-legamio-muted mr-1">$</span>
               <input
                 value={details.valor}
                 onChange={(e) => setDetails({ ...details, valor: e.target.value })}
-                className="w-full py-2.5 text-sm text-[#1A1A1A] outline-none bg-transparent"
+                className="w-full py-2.5 text-sm text-legamio-ink outline-none bg-transparent"
               />
             </div>
           </Field>
@@ -378,7 +378,7 @@ function StepDetails({
             <input
               value={details.lugar}
               onChange={(e) => setDetails({ ...details, lugar: e.target.value })}
-              className="w-full rounded-lg border border-[#E8E8E8] bg-white px-3 py-2.5 text-sm text-[#1A1A1A] outline-none transition-colors focus:border-[#21C2FF]"
+              className="w-full rounded-lg border border-legamio-border bg-white px-3 py-2.5 text-sm text-legamio-ink outline-none transition-colors focus:border-legamio-cyan"
             />
           </Field>
         </div>
@@ -387,7 +387,7 @@ function StepDetails({
           <input
             value={details.formaPago}
             onChange={(e) => setDetails({ ...details, formaPago: e.target.value })}
-            className="w-full rounded-lg border border-[#E8E8E8] bg-white px-3 py-2.5 text-sm text-[#1A1A1A] outline-none transition-colors focus:border-[#21C2FF]"
+            className="w-full rounded-lg border border-legamio-border bg-white px-3 py-2.5 text-sm text-legamio-ink outline-none transition-colors focus:border-legamio-cyan"
           />
         </Field>
 
@@ -400,9 +400,9 @@ function StepDetails({
             onChange={(e) =>
               setDetails({ ...details, duracion: Number(e.target.value) })
             }
-            className="legamio-range w-full accent-[#21C2FF]"
+            className="legamio-range w-full accent-legamio-cyan"
           />
-          <div className="flex justify-between text-[11px] text-[#757575] mt-1">
+          <div className="flex justify-between text-[11px] text-legamio-muted mt-1">
             <span>1 mes</span>
             <span>36 meses</span>
           </div>
@@ -426,7 +426,7 @@ function StepPreview({
   return (
     <div>
       <div className="flex items-center justify-between flex-wrap gap-3">
-        <h3 className="text-lg font-bold text-[#1A1A1A]">Vista previa del contrato</h3>
+        <h3 className="text-lg font-bold text-legamio-ink">Vista previa del contrato</h3>
         <div className="flex items-center gap-2">
           <Button variant="ghost" size="sm" leftIcon={<Pencil className="size-3.5" />}>
             Editar
@@ -437,17 +437,17 @@ function StepPreview({
         </div>
       </div>
 
-      <div className="mt-5 rounded-2xl border border-[#E8E8E8] bg-white p-7 max-h-[420px] overflow-y-auto">
-        <div className="border-b border-[#E8E8E8] pb-4 mb-5">
-          <p className="text-[11px] uppercase tracking-[2px] text-[#757575]">
+      <div className="mt-5 rounded-2xl border border-legamio-border bg-white p-7 max-h-[420px] overflow-y-auto">
+        <div className="border-b border-legamio-border pb-4 mb-5">
+          <p className="text-[11px] uppercase tracking-[2px] text-legamio-muted">
             República de Colombia · Documento privado
           </p>
-          <h4 className="mt-1 text-xl font-bold text-[#1A1A1A]">
+          <h4 className="mt-1 text-xl font-bold text-legamio-ink">
             {type.toUpperCase()}
           </h4>
         </div>
 
-        <p className="text-[14px] leading-relaxed text-[#1A1A1A]">
+        <p className="text-[14px] leading-relaxed text-legamio-ink">
           Entre los suscritos, <strong>{contratante.nombre || '____________'}</strong>{' '}
           identificado(a) con NIT/CC <strong>{contratante.documento || '____'}</strong>{' '}
           domiciliado(a) en <strong>{contratante.ciudad || '____'}</strong>{' '}
@@ -459,19 +459,19 @@ function StepPreview({
           presente contrato, regido por las siguientes cláusulas:
         </p>
 
-        <h5 className="mt-5 font-bold text-[#1A1A1A]">PRIMERA — OBJETO</h5>
-        <p className="text-[14px] mt-1.5 leading-relaxed text-[#616161]">
+        <h5 className="mt-5 font-bold text-legamio-ink">PRIMERA — OBJETO</h5>
+        <p className="text-[14px] mt-1.5 leading-relaxed text-legamio-gray">
           {details.objeto}
         </p>
 
-        <h5 className="mt-4 font-bold text-[#1A1A1A]">SEGUNDA — VALOR Y FORMA DE PAGO</h5>
-        <p className="text-[14px] mt-1.5 leading-relaxed text-[#616161]">
+        <h5 className="mt-4 font-bold text-legamio-ink">SEGUNDA — VALOR Y FORMA DE PAGO</h5>
+        <p className="text-[14px] mt-1.5 leading-relaxed text-legamio-gray">
           El valor total del presente contrato es de{' '}
           <strong>${details.valor} COP</strong>. {details.formaPago}
         </p>
 
-        <h5 className="mt-4 font-bold text-[#1A1A1A]">TERCERA — DURACIÓN</h5>
-        <p className="text-[14px] mt-1.5 leading-relaxed text-[#616161]">
+        <h5 className="mt-4 font-bold text-legamio-ink">TERCERA — DURACIÓN</h5>
+        <p className="text-[14px] mt-1.5 leading-relaxed text-legamio-gray">
           El presente contrato tendrá una duración de{' '}
           <strong>
             {details.duracion} {details.duracion === 1 ? 'mes' : 'meses'}
@@ -479,13 +479,13 @@ function StepPreview({
           , contados a partir de la firma del mismo.
         </p>
 
-        <h5 className="mt-4 font-bold text-[#1A1A1A]">CUARTA — LUGAR DE EJECUCIÓN</h5>
-        <p className="text-[14px] mt-1.5 leading-relaxed text-[#616161]">
+        <h5 className="mt-4 font-bold text-legamio-ink">CUARTA — LUGAR DE EJECUCIÓN</h5>
+        <p className="text-[14px] mt-1.5 leading-relaxed text-legamio-gray">
           Las actividades objeto del contrato se ejecutarán en{' '}
           <strong>{details.lugar}</strong>.
         </p>
 
-        <p className="mt-6 text-[12px] italic text-[#757575]">
+        <p className="mt-6 text-[12px] italic text-legamio-muted">
           Generado por Legamio · Revisa con un abogado antes de firmar.
         </p>
       </div>
@@ -502,7 +502,7 @@ function Field({
 }) {
   return (
     <label className="flex flex-col gap-1.5">
-      <span className="text-sm text-[#616161]">{label}</span>
+      <span className="text-sm text-legamio-gray">{label}</span>
       {children}
     </label>
   );
@@ -521,20 +521,20 @@ function Input({ label, value, onChange, required, type = 'text', error }: Input
   const filled = value.trim().length > 0;
   return (
     <label className="flex flex-col gap-1.5">
-      <span className="text-sm text-[#616161]">
-        {label} {required && <span className="text-[#FF6BFF]">*</span>}
+      <span className="text-sm text-legamio-gray">
+        {label} {required && <span className="text-legamio-magenta">*</span>}
       </span>
       <input
         type={type}
         value={value}
         onChange={onChange}
         className={cn(
-          'rounded-lg border bg-white px-3 py-2.5 text-sm text-[#1A1A1A] outline-none transition-colors focus:border-[#21C2FF]',
+          'rounded-lg border bg-white px-3 py-2.5 text-sm text-legamio-ink outline-none transition-colors focus:border-legamio-cyan',
           error
             ? 'border-red-400'
             : filled
               ? 'border-emerald-300'
-              : 'border-[#E8E8E8]',
+              : 'border-legamio-border',
         )}
       />
       {error && <span className="text-xs text-red-500">{error}</span>}

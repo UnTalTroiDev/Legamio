@@ -74,7 +74,7 @@ const socials = [
 
 export function Footer() {
   return (
-    <footer className="bg-[#1A1A1A] text-[#999]">
+    <footer className="bg-legamio-ink text-[#999]">
       <div className="mx-auto max-w-[1200px] px-6 py-16">
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 lg:gap-12">
           <div className="lg:col-span-1">
@@ -90,8 +90,8 @@ export function Footer() {
                   href={href}
                   aria-label={label}
                   target="_blank"
-                  rel="noreferrer"
-                  className="grid size-10 place-items-center rounded-full border border-[#333] text-[#757575] hover:text-[#21C2FF] hover:border-[#21C2FF] transition-colors duration-200"
+                  rel="noopener noreferrer"
+                  className="grid size-10 place-items-center rounded-full border border-[#333] text-legamio-muted hover:text-legamio-cyan hover:border-legamio-cyan transition-colors duration-200"
                 >
                   <Icon className="size-4" />
                 </a>
@@ -109,7 +109,7 @@ export function Footer() {
                   <li key={link.label}>
                     <Link
                       to={link.to}
-                      className="text-sm text-[#999] hover:text-[#21C2FF] transition-colors duration-200"
+                      className="text-sm text-[#999] hover:text-legamio-cyan transition-colors duration-200"
                     >
                       {link.label}
                     </Link>
@@ -117,7 +117,7 @@ export function Footer() {
                 ))}
               </ul>
               {col.title === 'Legal' && (
-                <p className="mt-5 text-[11px] font-light leading-relaxed text-[#757575]">
+                <p className="mt-5 text-[11px] font-light leading-relaxed text-legamio-muted">
                   No somos un bufete de abogados. Nuestro servicio es informativo
                   y no constituye asesoría jurídica formal.
                 </p>
@@ -128,12 +128,12 @@ export function Footer() {
 
         <div className="mt-14 h-px bg-[#333]" />
 
-        <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-[13px] text-[#757575]">
+        <div className="mt-6 flex flex-col sm:flex-row sm:items-center sm:justify-between gap-3 text-[13px] text-legamio-muted">
           <p>© {new Date().getFullYear()} Legamio SAS. Todos los derechos reservados.</p>
           <p className="flex items-center gap-2">
             <span
               aria-hidden
-              className="inline-block size-1.5 rounded-full bg-[#21C2FF]"
+              className="inline-block size-1.5 rounded-full bg-legamio-cyan"
             />
             Diseñado y operado desde Bogotá, Colombia.
           </p>

@@ -14,9 +14,9 @@ const brands = [
 export function LogoMarquee() {
   const items = [...brands, ...brands];
   return (
-    <section className="border-y border-[#E8E8E8] bg-white py-8 overflow-hidden">
+    <section className="border-y border-legamio-border bg-white py-8 overflow-hidden">
       <div className="mx-auto max-w-[1200px] px-6 mb-6">
-        <p className="text-center text-xs font-bold uppercase tracking-[2px] text-[#757575]">
+        <p className="text-center text-xs font-bold uppercase tracking-[2px] text-legamio-muted">
           Empresas que confían en Legamio
         </p>
       </div>
@@ -25,7 +25,7 @@ export function LogoMarquee() {
           {items.map((name, i) => (
             <span
               key={i}
-              className="font-display text-2xl font-medium tracking-tight text-[#757575]/70 hover:text-[#21C2FF] transition-colors"
+              className="font-display text-2xl font-medium tracking-tight text-legamio-muted/70 hover:text-legamio-cyan transition-colors"
             >
               {name}
             </span>

@@ -1,5 +1,5 @@
 import { useEffect, useRef, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import {
   Building,
   Download,
@@ -67,7 +67,7 @@ function formatMessage(text: string) {
   return parts.map((part, i) => {
     if (part.startsWith('**') && part.endsWith('**')) {
       return (
-        <strong key={i} className="text-[#1A1A1A] font-bold">
+        <strong key={i} className="text-legamio-ink font-bold">
           {part.slice(2, -2)}
         </strong>
       );
@@ -91,7 +91,7 @@ function TypingDots() {
       {[0, 1, 2].map((i) => (
         <span
           key={i}
-          className="legamio-typing-dot size-1.5 rounded-full bg-[#21C2FF]"
+          className="legamio-typing-dot size-1.5 rounded-full bg-legamio-cyan"
           style={{ animationDelay: `${i * 0.15}s` }}
         />
       ))}
@@ -196,25 +196,25 @@ export function LegalChat() {
 
   return (
     <div className="mx-auto w-full max-w-[1200px] px-4 md:px-6">
-      <div className="rounded-3xl overflow-hidden border border-[#E8E8E8] bg-white shadow-[0_16px_48px_rgba(0,0,0,0.14)] grid grid-cols-1 md:grid-cols-[280px_1fr] h-[640px] md:h-[720px]">
+      <div className="rounded-3xl overflow-hidden border border-legamio-border bg-white shadow-[0_16px_48px_rgba(0,0,0,0.14)] grid grid-cols-1 md:grid-cols-[280px_1fr] h-[640px] md:h-[720px]">
         {/* Sidebar */}
-        <aside className="hidden md:flex flex-col bg-[#F8F8F8] border-r border-[#E8E8E8]">
-          <div className="flex items-center gap-2 px-5 py-5 border-b border-[#E8E8E8]">
+        <aside className="hidden md:flex flex-col bg-legamio-surface border-r border-legamio-border">
+          <div className="flex items-center gap-2 px-5 py-5 border-b border-legamio-border">
             <LegamioMark size={28} />
-            <span className="font-bold text-[#1A1A1A]">Legamio IA</span>
+            <span className="font-bold text-legamio-ink">Legamio IA</span>
           </div>
 
           <div className="px-4 pt-4">
             <button
               type="button"
-              className="flex w-full items-center justify-center gap-2 rounded-full bg-[#21C2FF] text-white py-2.5 text-sm font-bold shadow-[0_4px_12px_rgba(33,194,255,0.25)] hover:brightness-110 transition"
+              className="flex w-full items-center justify-center gap-2 rounded-full bg-legamio-cyan text-white py-2.5 text-sm font-bold shadow-[0_4px_12px_rgba(33,194,255,0.25)] hover:brightness-110 transition"
             >
               <Plus className="size-4" /> Nueva consulta
             </button>
           </div>
 
           <nav className="flex-1 overflow-y-auto px-3 pt-5">
-            <p className="px-3 mb-2 text-[11px] uppercase tracking-[1px] text-[#757575] font-bold">
+            <p className="px-3 mb-2 text-[11px] uppercase tracking-[1px] text-legamio-muted font-bold">
               Recientes
             </p>
             <ul className="flex flex-col gap-1">
@@ -225,8 +225,8 @@ export function LegalChat() {
                     className={cn(
                       'w-full flex items-center gap-2.5 rounded-lg px-3 py-2.5 text-left text-sm transition-colors',
                       active
-                        ? 'bg-[#F0FBFF] text-[#21C2FF] font-bold'
-                        : 'text-[#616161] hover:bg-[#F0FBFF] hover:text-[#21C2FF]',
+                        ? 'bg-legamio-cyan-soft text-legamio-cyan font-bold'
+                        : 'text-legamio-gray hover:bg-legamio-cyan-soft hover:text-legamio-cyan',
                     )}
                   >
                     <Icon className="size-4" />
@@ -237,7 +237,7 @@ export function LegalChat() {
             </ul>
           </nav>
 
-          <div className="flex items-center justify-between gap-2 border-t border-[#E8E8E8] px-4 py-4">
+          <div className="flex items-center justify-between gap-2 border-t border-legamio-border px-4 py-4">
             <div className="flex items-center gap-2.5">
               <span
                 className="grid size-9 place-items-center rounded-full text-white text-xs font-bold"
@@ -247,14 +247,14 @@ export function LegalChat() {
                 MB
               </span>
               <div className="text-xs leading-tight">
-                <p className="font-bold text-[#1A1A1A]">Mío Búho</p>
-                <p className="text-[#757575]">Plan Pro</p>
+                <p className="font-bold text-legamio-ink">Mío Búho</p>
+                <p className="text-legamio-muted">Plan Pro</p>
               </div>
             </div>
             <button
               type="button"
               aria-label="Configuración"
-              className="grid size-9 place-items-center rounded-full text-[#616161] hover:bg-white hover:text-[#21C2FF] transition"
+              className="grid size-9 place-items-center rounded-full text-legamio-gray hover:bg-white hover:text-legamio-cyan transition"
             >
               <Settings className="size-4" />
             </button>
@@ -263,9 +263,9 @@ export function LegalChat() {
 
         {/* Main chat */}
         <div className="flex flex-col min-h-0">
-          <div className="flex items-center justify-between gap-3 border-b border-[#E8E8E8] px-5 py-4">
+          <div className="flex items-center justify-between gap-3 border-b border-legamio-border px-5 py-4">
             <div className="flex items-center gap-3 min-w-0">
-              <h3 className="text-[15px] font-bold text-[#1A1A1A] truncate">
+              <h3 className="text-[15px] font-bold text-legamio-ink truncate">
                 Contrato de servicios — Freelance
               </h3>
               <Chip color="cyan">Contrato</Chip>
@@ -281,98 +281,98 @@ export function LegalChat() {
 
           <div ref={scrollRef} className="flex-1 overflow-y-auto px-4 md:px-7 py-6 space-y-5 bg-white">
             <AnimatePresence initial={false}>
-              {messages.map((m) => (
-                <motion.div
-                  key={m.id}
+              {messages.map((msg) => (
+                <m.div
+                  key={msg.id}
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.25 }}
                   className={cn(
                     'flex',
-                    m.role === 'user' ? 'justify-end' : 'justify-start',
+                    msg.role === 'user' ? 'justify-end' : 'justify-start',
                   )}
                 >
                   <div
                     className={cn(
                       'max-w-[82%] rounded-2xl px-4 py-3 text-[14px] leading-relaxed',
-                      m.role === 'user'
-                        ? 'bg-[#21C2FF] text-white rounded-br-[6px] shadow-[0_4px_12px_rgba(33,194,255,0.20)]'
-                        : 'bg-[#F8F8F8] text-[#1A1A1A] border border-[#E8F8FF] rounded-bl-[6px]',
+                      msg.role === 'user'
+                        ? 'bg-legamio-cyan text-white rounded-br-[6px] shadow-[0_4px_12px_rgba(33,194,255,0.20)]'
+                        : 'bg-legamio-surface text-legamio-ink border border-[#E8F8FF] rounded-bl-[6px]',
                     )}
                   >
-                    {m.role === 'ai' && (
-                      <div className="flex items-center gap-2 mb-2 text-[12px] text-[#616161]">
+                    {msg.role === 'ai' && (
+                      <div className="flex items-center gap-2 mb-2 text-[12px] text-legamio-gray">
                         <LegamioMark size={18} />
                         <span className="font-bold">Legamio IA</span>
-                        <span>· {m.timestamp}</span>
+                        <span>· {msg.timestamp}</span>
                       </div>
                     )}
                     <div>
-                      {m.role === 'ai' && m.id === 'ai-generated' ? (
-                        <TypewriterText text={m.content} />
+                      {msg.role === 'ai' && msg.id === 'ai-generated' ? (
+                        <TypewriterText text={msg.content} />
                       ) : (
-                        formatMessage(m.content)
+                        formatMessage(msg.content)
                       )}
                     </div>
 
-                    {m.attachment && (
+                    {msg.attachment && (
                       <button
                         type="button"
-                        className="mt-3 inline-flex items-center gap-2 rounded-full bg-[#21C2FF] text-white px-3.5 py-2 text-[13px] font-bold hover:brightness-110 transition shadow-[0_4px_12px_rgba(33,194,255,0.25)]"
+                        className="mt-3 inline-flex items-center gap-2 rounded-full bg-legamio-cyan text-white px-3.5 py-2 text-[13px] font-bold hover:brightness-110 transition shadow-[0_4px_12px_rgba(33,194,255,0.25)]"
                       >
                         <Download className="size-4" />
-                        {m.attachment.label}
-                        {m.attachment.meta && (
+                        {msg.attachment.label}
+                        {msg.attachment.meta && (
                           <span className="text-[11px] font-normal text-white/85">
-                            · {m.attachment.meta}
+                            · {msg.attachment.meta}
                           </span>
                         )}
                       </button>
                     )}
 
-                    {m.role === 'user' && (
+                    {msg.role === 'user' && (
                       <p className="mt-1 text-[10px] text-white/80 text-right">
-                        {m.timestamp}
+                        {msg.timestamp}
                       </p>
                     )}
                   </div>
-                </motion.div>
+                </m.div>
               ))}
 
               {pending && (
-                <motion.div
+                <m.div
                   initial={{ opacity: 0, y: 8 }}
                   animate={{ opacity: 1, y: 0 }}
                   exit={{ opacity: 0 }}
                   className="flex justify-start"
                 >
-                  <div className="bg-[#F8F8F8] border border-[#E8F8FF] rounded-2xl rounded-bl-[6px] px-4 py-3">
-                    <div className="flex items-center gap-2 text-[12px] text-[#616161] mb-1.5">
+                  <div className="bg-legamio-surface border border-[#E8F8FF] rounded-2xl rounded-bl-[6px] px-4 py-3">
+                    <div className="flex items-center gap-2 text-[12px] text-legamio-gray mb-1.5">
                       <LegamioMark size={18} />
                       <span className="font-bold">Legamio IA</span>
                     </div>
                     <TypingDots />
                   </div>
-                </motion.div>
+                </m.div>
               )}
             </AnimatePresence>
           </div>
 
-          <div className="border-t border-[#E8E8E8] bg-white px-4 md:px-6 pt-3 pb-4">
+          <div className="border-t border-legamio-border bg-white px-4 md:px-6 pt-3 pb-4">
             <div className="flex flex-wrap items-center gap-2 pb-3">
               {suggestions.map((s) => (
                 <button
                   key={s}
                   type="button"
                   onClick={() => setInput(s)}
-                  className="rounded-full border border-[#E8E8E8] bg-white px-3 py-1.5 text-[12px] text-[#616161] hover:border-[#21C2FF] hover:text-[#21C2FF] transition-colors"
+                  className="rounded-full border border-legamio-border bg-white px-3 py-1.5 text-[12px] text-legamio-gray hover:border-legamio-cyan hover:text-legamio-cyan transition-colors"
                 >
                   {s}
                 </button>
               ))}
             </div>
 
-            <div className="flex items-end gap-2 rounded-2xl border border-[#E8E8E8] bg-[#F8F8F8] focus-within:border-[#21C2FF] focus-within:bg-white transition-colors px-3 py-2">
+            <div className="flex items-end gap-2 rounded-2xl border border-legamio-border bg-legamio-surface focus-within:border-legamio-cyan focus-within:bg-white transition-colors px-3 py-2">
               <textarea
                 value={input}
                 onChange={(e) => setInput(e.target.value)}
@@ -384,20 +384,20 @@ export function LegalChat() {
                 }}
                 placeholder="Describe tu situación legal…"
                 rows={1}
-                className="flex-1 max-h-32 resize-none bg-transparent text-sm text-[#1A1A1A] placeholder:text-[#757575] outline-none py-1.5"
+                className="flex-1 max-h-32 resize-none bg-transparent text-sm text-legamio-ink placeholder:text-legamio-muted outline-none py-1.5"
               />
               <button
                 type="button"
                 onClick={handleSend}
                 aria-label="Enviar"
-                className="grid size-10 place-items-center rounded-full bg-[#21C2FF] text-white shadow-[0_4px_12px_rgba(33,194,255,0.30)] hover:brightness-110 transition disabled:opacity-50"
+                className="grid size-10 place-items-center rounded-full bg-legamio-cyan text-white shadow-[0_4px_12px_rgba(33,194,255,0.30)] hover:brightness-110 transition disabled:opacity-50"
                 disabled={!input.trim()}
               >
                 <Send className="size-4" />
               </button>
             </div>
 
-            <p className="mt-2.5 text-[11px] font-light text-[#757575] text-center">
+            <p className="mt-2.5 text-[11px] font-light text-legamio-muted text-center">
               Legamio es una herramienta de inteligencia legal que no constituye
               una asesoría legal formal de un abogado.
             </p>

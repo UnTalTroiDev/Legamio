@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 import { Link, NavLink } from 'react-router-dom';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import {
   ArrowRight,
   ChevronDown,
@@ -72,6 +72,16 @@ export function Navbar() {
     };
   }, [open]);
 
+  useEffect(() => {
+    const onKeyDown = (e: KeyboardEvent) => {
+      if (e.key !== 'Escape') return;
+      setDropdown(null);
+      setOpen(false);
+    };
+    window.addEventListener('keydown', onKeyDown);
+    return () => window.removeEventListener('keydown', onKeyDown);
+  }, []);
+
   return (
     <>
       <header
@@ -102,9 +112,14 @@ export function Navbar() {
                   {hasChildren ? (
                     <button
                       type="button"
-                      className="flex items-center gap-1 px-3 py-2 text-[15px] text-[#616161] hover:text-[#21C2FF] transition-colors duration-200"
+                      className="flex items-center gap-1 px-3 py-2 text-[15px] text-legamio-gray hover:text-legamio-cyan transition-colors duration-200"
                       aria-expanded={dropdown === link.label}
                       aria-haspopup="menu"
+                      onClick={() =>
+                        setDropdown((current) =>
+                          current === link.label ? null : link.label,
+                        )
+                      }
                     >
                       {link.label}
                       <ChevronDown
@@ -119,8 +134,8 @@ export function Navbar() {
                       to={link.to}
                       className={({ isActive }) =>
                         cn(
-                          'px-3 py-2 text-[15px] transition-colors duration-200 hover:text-[#21C2FF]',
-                          isActive ? 'text-[#21C2FF]' : 'text-[#616161]',
+                          'px-3 py-2 text-[15px] transition-colors duration-200 hover:text-legamio-cyan',
+                          isActive ? 'text-legamio-cyan' : 'text-legamio-gray',
                         )
                       }
                     >
@@ -130,7 +145,7 @@ export function Navbar() {
 
                   <AnimatePresence>
                     {hasChildren && dropdown === link.label && (
-                      <motion.div
+                      <m.div
                         initial={{ opacity: 0, y: -6 }}
                         animate={{ opacity: 1, y: 0 }}
                         exit={{ opacity: 0, y: -6 }}
@@ -138,23 +153,23 @@ export function Navbar() {
                         className="absolute left-0 top-full pt-2"
                         role="menu"
                       >
-                        <div className="w-80 rounded-2xl border border-[#E8E8E8] bg-white p-2 shadow-[0_16px_48px_rgba(0,0,0,0.14)]">
+                        <div className="w-80 rounded-2xl border border-legamio-border bg-white p-2 shadow-[0_16px_48px_rgba(0,0,0,0.14)]">
                           {link.children!.map((child) => (
                             <Link
                               key={child.label}
                               to={child.to}
                               role="menuitem"
-                              className="flex items-start gap-3 rounded-xl px-3 py-2.5 hover:bg-[#F0FBFF] transition-colors"
+                              className="flex items-start gap-3 rounded-xl px-3 py-2.5 hover:bg-legamio-cyan-soft transition-colors"
                             >
-                              <span className="mt-0.5 grid size-8 place-items-center rounded-lg bg-[#F0FBFF] text-[#21C2FF]">
+                              <span className="mt-0.5 grid size-8 place-items-center rounded-lg bg-legamio-cyan-soft text-legamio-cyan">
                                 {child.icon}
                               </span>
                               <span className="flex flex-col">
-                                <span className="font-bold text-[#1A1A1A] text-sm">
+                                <span className="font-bold text-legamio-ink text-sm">
                                   {child.label}
                                 </span>
                                 {child.description && (
-                                  <span className="text-xs text-[#757575] font-light">
+                                  <span className="text-xs text-legamio-muted font-light">
                                     {child.description}
                                   </span>
                                 )}
@@ -162,7 +177,7 @@ export function Navbar() {
                             </Link>
                           ))}
                         </div>
-                      </motion.div>
+                      </m.div>
                     )}
                   </AnimatePresence>
                 </li>
@@ -190,7 +205,7 @@ export function Navbar() {
 
           <button
             type="button"
-            className="lg:hidden grid size-10 place-items-center rounded-full text-[#1A1A1A] hover:bg-[#F5F5F5] transition-colors"
+            className="lg:hidden grid size-10 place-items-center rounded-full text-legamio-ink hover:bg-legamio-gray-soft transition-colors"
             aria-label="Abrir menú"
             aria-expanded={open}
             onClick={() => setOpen(true)}
@@ -203,7 +218,7 @@ export function Navbar() {
       <AnimatePresence>
         {open && (
           <>
-            <motion.div
+            <m.div
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
               exit={{ opacity: 0 }}
@@ -211,7 +226,7 @@ export function Navbar() {
               className="fixed inset-0 z-[60] bg-black/40 lg:hidden"
               aria-hidden
             />
-            <motion.aside
+            <m.aside
               initial={{ x: '100%' }}
               animate={{ x: 0 }}
               exit={{ x: '100%' }}
@@ -221,11 +236,11 @@ export function Navbar() {
               aria-modal="true"
               aria-label="Menú móvil"
             >
-              <div className="flex items-center justify-between px-5 h-16 border-b border-[#E8E8E8]">
+              <div className="flex items-center justify-between px-5 h-16 border-b border-legamio-border">
                 <Wordmark variant="dark" withTagline={false} size={28} />
                 <button
                   type="button"
-                  className="grid size-10 place-items-center rounded-full hover:bg-[#F5F5F5]"
+                  className="grid size-10 place-items-center rounded-full hover:bg-legamio-gray-soft"
                   aria-label="Cerrar menú"
                   onClick={() => setOpen(false)}
                 >
@@ -237,17 +252,17 @@ export function Navbar() {
                 {links.map((link) => (
                   <li key={link.label}>
                     {link.children ? (
-                      <div className="flex items-center justify-between px-3 py-4 text-[#1A1A1A]">
+                      <div className="flex items-center justify-between px-3 py-4 text-legamio-ink">
                         <span className="font-bold">{link.label}</span>
                       </div>
                     ) : (
                       <Link
                         to={link.to}
                         onClick={() => setOpen(false)}
-                        className="flex items-center justify-between px-3 py-4 text-[#1A1A1A] hover:text-[#21C2FF] transition-colors"
+                        className="flex items-center justify-between px-3 py-4 text-legamio-ink hover:text-legamio-cyan transition-colors"
                       >
                         <span className="font-bold">{link.label}</span>
-                        <ArrowRight className="size-4 text-[#757575]" />
+                        <ArrowRight className="size-4 text-legamio-muted" />
                       </Link>
                     )}
                     {link.children && (
@@ -257,7 +272,7 @@ export function Navbar() {
                             <Link
                               to={child.to}
                               onClick={() => setOpen(false)}
-                              className="block rounded-lg px-3 py-2 text-sm text-[#616161] hover:bg-[#F0FBFF] hover:text-[#21C2FF]"
+                              className="block rounded-lg px-3 py-2 text-sm text-legamio-gray hover:bg-legamio-cyan-soft hover:text-legamio-cyan"
                             >
                               {child.label}
                             </Link>
@@ -269,7 +284,7 @@ export function Navbar() {
                 ))}
               </ul>
 
-              <div className="border-t border-[#E8E8E8] p-5 flex flex-col gap-2.5">
+              <div className="border-t border-legamio-border p-5 flex flex-col gap-2.5">
                 <Button
                   variant="secondary"
                   size="md"
@@ -288,7 +303,7 @@ export function Navbar() {
                   Empezar gratis
                 </Button>
               </div>
-            </motion.aside>
+            </m.aside>
           </>
         )}
       </AnimatePresence>

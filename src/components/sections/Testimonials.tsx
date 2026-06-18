@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { ChevronLeft, ChevronRight, Star } from 'lucide-react';
 
 import { Chip, SectionWrapper } from '@/components/ui';
@@ -101,11 +101,11 @@ export function Testimonials() {
   return (
     <SectionWrapper id="testimonios" background="surface">
       <div className="flex flex-col items-center text-center max-w-2xl mx-auto">
-        <h2 className="font-display text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight">
+        <h2 className="font-display text-[32px] md:text-[46px] font-medium text-legamio-ink leading-[1.05] tracking-tight">
           Lo que <span className="font-display-italic font-normal">dicen</span>{' '}
           nuestros usuarios
         </h2>
-        <p className="mt-4 text-lg font-light text-[#616161]">
+        <p className="mt-4 text-lg font-light text-legamio-gray">
           Emprendedores y empresas que ya gestionan su parte legal con Legamio.
         </p>
       </div>
@@ -113,7 +113,7 @@ export function Testimonials() {
       <div className="relative mt-12">
         <div className="overflow-hidden">
           <AnimatePresence mode="wait">
-            <motion.div
+            <m.div
               key={safeIndex}
               initial={{ opacity: 0, x: 24 }}
               animate={{ opacity: 1, x: 0 }}
@@ -124,7 +124,7 @@ export function Testimonials() {
               {visible.map((t) => (
                 <article
                   key={t.name}
-                  className="relative rounded-2xl bg-white border border-[#E8E8E8] p-7 shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.10)] transition-shadow"
+                  className="relative rounded-2xl bg-white border border-legamio-border p-7 shadow-[0_2px_8px_rgba(0,0,0,0.06)] hover:shadow-[0_8px_24px_rgba(0,0,0,0.10)] transition-shadow"
                 >
                   <span
                     aria-hidden
@@ -134,17 +134,17 @@ export function Testimonials() {
                     “
                   </span>
 
-                  <div className="flex items-center gap-1 text-[#FFDD00]">
+                  <div className="flex items-center gap-1 text-legamio-yellow">
                     {Array.from({ length: 5 }).map((_, i) => (
                       <Star
                         key={i}
-                        className="size-4 fill-[#FFDD00]"
+                        className="size-4 fill-legamio-yellow"
                         strokeWidth={0}
                       />
                     ))}
                   </div>
 
-                  <p className="mt-4 text-[16px] font-light leading-relaxed text-[#616161]">
+                  <p className="mt-4 text-[16px] font-light leading-relaxed text-legamio-gray">
                     {t.quote}
                   </p>
 
@@ -157,10 +157,10 @@ export function Testimonials() {
                       {t.initials}
                     </span>
                     <div>
-                      <p className="text-[15px] font-bold text-[#1A1A1A]">
+                      <p className="text-[15px] font-bold text-legamio-ink">
                         {t.name}
                       </p>
-                      <p className="text-[13px] text-[#616161]">
+                      <p className="text-[13px] text-legamio-gray">
                         {t.role} · {t.city}
                       </p>
                     </div>
@@ -171,7 +171,7 @@ export function Testimonials() {
                   </div>
                 </article>
               ))}
-            </motion.div>
+            </m.div>
           </AnimatePresence>
         </div>
 
@@ -180,7 +180,7 @@ export function Testimonials() {
             type="button"
             aria-label="Anterior"
             onClick={prev}
-            className="grid size-10 place-items-center rounded-full border border-[#E8E8E8] bg-white text-[#616161] hover:text-[#21C2FF] hover:border-[#21C2FF] transition-colors"
+            className="grid size-10 place-items-center rounded-full border border-legamio-border bg-white text-legamio-gray hover:text-legamio-cyan hover:border-legamio-cyan transition-colors"
           >
             <ChevronLeft className="size-5" />
           </button>
@@ -194,8 +194,8 @@ export function Testimonials() {
                 className={cn(
                   'size-2.5 rounded-full transition-all',
                   i === safeIndex
-                    ? 'bg-[#21C2FF] w-7'
-                    : 'bg-[#E8E8E8] hover:bg-[#21C2FF]/40',
+                    ? 'bg-legamio-cyan w-7'
+                    : 'bg-legamio-border hover:bg-legamio-cyan/40',
                 )}
               />
             ))}
@@ -204,7 +204,7 @@ export function Testimonials() {
             type="button"
             aria-label="Siguiente"
             onClick={next}
-            className="grid size-10 place-items-center rounded-full border border-[#E8E8E8] bg-white text-[#616161] hover:text-[#21C2FF] hover:border-[#21C2FF] transition-colors"
+            className="grid size-10 place-items-center rounded-full border border-legamio-border bg-white text-legamio-gray hover:text-legamio-cyan hover:border-legamio-cyan transition-colors"
           >
             <ChevronRight className="size-5" />
           </button>

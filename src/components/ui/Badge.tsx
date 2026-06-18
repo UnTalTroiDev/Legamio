@@ -17,23 +17,23 @@ export interface BadgeProps extends HTMLAttributes<HTMLSpanElement> {
 }
 
 const variantClasses: Record<BadgeVariant, string> = {
-  cyan: 'bg-[#F0FBFF] text-[#21C2FF] border border-[#21C2FF]/20',
-  magenta: 'bg-[#FFF0FF] text-[#FF6BFF] border border-[#FF6BFF]/20',
-  yellow: 'bg-[#FFFDF0] text-[#A88500] border border-[#FFDD00]/40',
-  orange: 'bg-[#FFF8F0] text-[#FFA200] border border-[#FFA200]/20',
-  gray: 'bg-[#F5F5F5] text-[#616161] border border-[#E8E8E8]',
-  outline: 'bg-transparent text-[#616161] border border-[#E8E8E8]',
-  dark: 'bg-[#1A1A1A] text-white border border-[#1A1A1A]',
+  cyan: 'bg-legamio-cyan-soft text-legamio-cyan border border-legamio-cyan/20',
+  magenta: 'bg-legamio-magenta-soft text-legamio-magenta border border-legamio-magenta/20',
+  yellow: 'bg-legamio-yellow-soft text-[#A88500] border border-legamio-yellow/40',
+  orange: 'bg-legamio-orange-soft text-legamio-orange border border-legamio-orange/20',
+  gray: 'bg-legamio-gray-soft text-legamio-gray border border-legamio-border',
+  outline: 'bg-transparent text-legamio-gray border border-legamio-border',
+  dark: 'bg-legamio-ink text-white border border-legamio-ink',
 };
 
 const dotColor: Record<BadgeVariant, string> = {
-  cyan: 'bg-[#21C2FF]',
-  magenta: 'bg-[#FF6BFF]',
-  yellow: 'bg-[#FFDD00]',
-  orange: 'bg-[#FFA200]',
-  gray: 'bg-[#616161]',
-  outline: 'bg-[#616161]',
-  dark: 'bg-[#21C2FF]',
+  cyan: 'bg-legamio-cyan',
+  magenta: 'bg-legamio-magenta',
+  yellow: 'bg-legamio-yellow',
+  orange: 'bg-legamio-orange',
+  gray: 'bg-legamio-gray',
+  outline: 'bg-legamio-gray',
+  dark: 'bg-legamio-cyan',
 };
 
 export function Badge({

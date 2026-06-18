@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { AnimatePresence, motion } from 'framer-motion';
+import { AnimatePresence, m } from 'framer-motion';
 import { Check, CreditCard, Lock, ShieldCheck } from 'lucide-react';
 
 import { Badge, Button, SectionWrapper } from '@/components/ui';
@@ -91,92 +91,76 @@ export function Pricing() {
 
   return (
     <SectionWrapper id="precios" background="white">
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
         variants={staggerContainer}
         className="flex flex-col items-center text-center max-w-2xl mx-auto"
       >
-        <motion.div variants={fadeInUp}>
+        <m.div variants={fadeInUp}>
           <Badge variant="cyan">Precios transparentes</Badge>
-        </motion.div>
-        <motion.h2
+        </m.div>
+        <m.h2
           variants={fadeInUp}
-          className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-[#1A1A1A] leading-[1.05] tracking-tight"
+          className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-legamio-ink leading-[1.05] tracking-tight"
         >
           Elige el plan que{' '}
           <span className="font-display-italic font-normal">necesitas</span>
-        </motion.h2>
-        <motion.p
+        </m.h2>
+        <m.p
           variants={fadeInUp}
-          className="mt-4 text-lg font-light text-[#616161]"
+          className="mt-4 text-lg font-light text-legamio-gray"
         >
           Comienza gratis. Escala cuando tu negocio lo requiera. Sin sorpresas.
-        </motion.p>
+        </m.p>
 
-        <motion.div
+        <m.div
           variants={fadeInUp}
-          className="mt-8 inline-flex items-center gap-2 rounded-full border border-[#E8E8E8] bg-[#F8F8F8] p-1.5"
+          className="relative mt-8 inline-grid grid-cols-2 rounded-full border border-legamio-border bg-legamio-surface p-1.5"
           role="tablist"
           aria-label="Ciclo de facturación"
         >
+          {/* Píldora deslizante (CSS puro: dos columnas iguales, translateX exacto) */}
+          <span
+            aria-hidden
+            className="pointer-events-none absolute inset-y-1.5 left-1.5 w-[calc(50%-6px)] rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)] transition-transform duration-300 ease-out motion-reduce:transition-none"
+            style={{ transform: cycle === 'annual' ? 'translateX(100%)' : 'translateX(0)' }}
+          />
           <button
             type="button"
             role="tab"
             aria-selected={cycle === 'monthly'}
             onClick={() => setCycle('monthly')}
-            className="relative px-5 py-2 text-sm font-bold rounded-full transition-colors"
-          >
-            {cycle === 'monthly' && (
-              <motion.span
-                layoutId="cycle-pill"
-                className="absolute inset-0 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
-                transition={{ type: 'spring', damping: 26, stiffness: 320 }}
-              />
+            className={cn(
+              'relative z-10 px-5 py-2 text-sm font-bold rounded-full transition-colors',
+              cycle === 'monthly' ? 'text-legamio-ink' : 'text-legamio-gray',
             )}
-            <span
-              className={cn(
-                'relative',
-                cycle === 'monthly' ? 'text-[#1A1A1A]' : 'text-[#616161]',
-              )}
-            >
-              Mensual
-            </span>
+          >
+            Mensual
           </button>
           <button
             type="button"
             role="tab"
             aria-selected={cycle === 'annual'}
             onClick={() => setCycle('annual')}
-            className="relative flex items-center gap-2 px-5 py-2 text-sm font-bold rounded-full transition-colors"
-          >
-            {cycle === 'annual' && (
-              <motion.span
-                layoutId="cycle-pill"
-                className="absolute inset-0 rounded-full bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)]"
-                transition={{ type: 'spring', damping: 26, stiffness: 320 }}
-              />
+            className={cn(
+              'relative z-10 flex items-center justify-center gap-2 px-5 py-2 text-sm font-bold rounded-full transition-colors',
+              cycle === 'annual' ? 'text-legamio-ink' : 'text-legamio-gray',
             )}
+          >
+            Anual
             <span
-              className={cn(
-                'relative',
-                cycle === 'annual' ? 'text-[#1A1A1A]' : 'text-[#616161]',
-              )}
-            >
-              Anual
-            </span>
-            <span
-              className="relative rounded-full bg-[#21C2FF] px-2 py-0.5 text-[11px] font-bold text-white"
+              className="rounded-full bg-legamio-cyan px-2 py-0.5 text-[11px] font-bold text-white"
               aria-label="Ahorra 20%"
             >
               -20%
             </span>
           </button>
-        </motion.div>
-      </motion.div>
+        </m.div>
+      </m.div>
 
-      <motion.div
+      <m.div
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.15 }}
@@ -184,21 +168,21 @@ export function Pricing() {
         className="mt-14 grid grid-cols-1 lg:grid-cols-3 gap-6 lg:items-stretch"
       >
         {plans.map((plan) => (
-          <motion.div
+          <m.div
             key={plan.name}
             variants={fadeInUp}
             className={cn(
               'relative rounded-3xl overflow-hidden flex flex-col',
               plan.variant === 'light' &&
-                'border border-[#E8E8E8] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)]',
+                'border border-legamio-border bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)]',
               plan.variant === 'cyan' &&
                 'bg-white shadow-[0_8px_32px_rgba(33,194,255,0.20)] lg:scale-[1.04] z-10',
               plan.variant === 'dark' &&
-                'border border-[#1A1A1A] bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)]',
+                'border border-legamio-ink bg-white shadow-[0_2px_8px_rgba(0,0,0,0.06)]',
             )}
           >
             {plan.highlight && (
-              <span className="absolute top-3 left-1/2 -translate-x-1/2 rounded-full bg-[#FF6BFF] px-3 py-1 text-[12px] font-bold text-white shadow-[0_4px_12px_rgba(255,107,255,0.30)]">
+              <span className="absolute top-3 left-1/2 -translate-x-1/2 rounded-full bg-legamio-magenta px-3 py-1 text-[12px] font-bold text-white shadow-[0_4px_12px_rgba(255,107,255,0.30)]">
                 {plan.badge}
               </span>
             )}
@@ -206,16 +190,16 @@ export function Pricing() {
             <div
               className={cn(
                 'px-7 pt-12 pb-8',
-                plan.variant === 'light' && 'bg-[#F8F8F8]',
-                plan.variant === 'cyan' && 'bg-[#21C2FF] text-white',
-                plan.variant === 'dark' && 'bg-[#1A1A1A] text-white',
+                plan.variant === 'light' && 'bg-legamio-surface',
+                plan.variant === 'cyan' && 'bg-legamio-cyan text-white',
+                plan.variant === 'dark' && 'bg-legamio-ink text-white',
               )}
             >
               {!plan.highlight && (
                 <span
                   className={cn(
                     'inline-flex items-center rounded-full px-3 py-1 text-[12px] font-bold mb-4',
-                    plan.variant === 'light' && 'bg-white text-[#616161]',
+                    plan.variant === 'light' && 'bg-white text-legamio-gray',
                     plan.variant === 'dark' && 'bg-white/10 text-white',
                   )}
                 >
@@ -226,7 +210,7 @@ export function Pricing() {
               <h3
                 className={cn(
                   'text-2xl font-bold',
-                  plan.variant === 'light' ? 'text-[#1A1A1A]' : 'text-white',
+                  plan.variant === 'light' ? 'text-legamio-ink' : 'text-white',
                 )}
               >
                 {plan.name}
@@ -235,7 +219,7 @@ export function Pricing() {
                 className={cn(
                   'mt-1 text-sm font-light',
                   plan.variant === 'light'
-                    ? 'text-[#616161]'
+                    ? 'text-legamio-gray'
                     : 'text-white/80',
                 )}
               >
@@ -244,7 +228,7 @@ export function Pricing() {
 
               <div className="mt-6 flex items-baseline gap-2 min-h-[40px]">
                 <AnimatePresence mode="wait" initial={false}>
-                  <motion.span
+                  <m.span
                     key={`${plan.name}-${cycle}`}
                     initial={{ opacity: 0, y: 8 }}
                     animate={{ opacity: 1, y: 0 }}
@@ -252,18 +236,18 @@ export function Pricing() {
                     transition={{ duration: 0.25, ease: [0.22, 1, 0.36, 1] }}
                     className={cn(
                       'text-4xl font-bold tracking-tight',
-                      plan.variant === 'light' ? 'text-[#1A1A1A]' : 'text-white',
+                      plan.variant === 'light' ? 'text-legamio-ink' : 'text-white',
                     )}
                   >
                     {cycle === 'monthly' ? plan.priceMonthly : plan.priceAnnual}
-                  </motion.span>
+                  </m.span>
                 </AnimatePresence>
                 {plan.priceSuffix && (
                   <span
                     className={cn(
                       'text-sm font-light',
                       plan.variant === 'light'
-                        ? 'text-[#616161]'
+                        ? 'text-legamio-gray'
                         : 'text-white/80',
                     )}
                   >
@@ -283,16 +267,16 @@ export function Pricing() {
                 {plan.features.map((feature) => (
                   <li
                     key={feature}
-                    className="flex items-start gap-3 text-[15px] text-[#616161]"
+                    className="flex items-start gap-3 text-[15px] text-legamio-gray"
                   >
                     <span
                       className={cn(
                         'mt-0.5 grid size-5 place-items-center rounded-full',
                         plan.variant === 'cyan'
-                          ? 'bg-[#F0FBFF] text-[#21C2FF]'
+                          ? 'bg-legamio-cyan-soft text-legamio-cyan'
                           : plan.variant === 'dark'
-                            ? 'bg-[#1A1A1A] text-white'
-                            : 'bg-[#F0FBFF] text-[#21C2FF]',
+                            ? 'bg-legamio-ink text-white'
+                            : 'bg-legamio-cyan-soft text-legamio-cyan',
                       )}
                     >
                       <Check className="size-3" strokeWidth={3} />
@@ -309,7 +293,7 @@ export function Pricing() {
                     size="lg"
                     fullWidth
                     onClick={() => goToApp('register')}
-                    className="!bg-white !text-[#21C2FF] !shadow-[0_4px_16px_rgba(0,0,0,0.10)] hover:!brightness-100 hover:!bg-[#F0FBFF]"
+                    className="!bg-white !text-legamio-cyan !shadow-[0_4px_16px_rgba(0,0,0,0.10)] hover:!brightness-100 hover:!bg-legamio-cyan-soft"
                   >
                     {plan.cta}
                   </Button>
@@ -334,14 +318,14 @@ export function Pricing() {
                 )}
               </div>
             </div>
-          </motion.div>
+          </m.div>
         ))}
-      </motion.div>
+      </m.div>
 
-      <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-sm text-[#616161]">
+      <div className="mt-12 flex flex-wrap items-center justify-center gap-x-10 gap-y-4 text-sm text-legamio-gray">
         {guarantees.map(({ icon: Icon, label }) => (
           <span key={label} className="inline-flex items-center gap-2">
-            <Icon className="size-4 text-[#21C2FF]" />
+            <Icon className="size-4 text-legamio-cyan" />
             {label}
           </span>
         ))}
