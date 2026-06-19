@@ -1,12 +1,12 @@
 const brands = [
-  'Ronce S.A.S',
-  'Salazar Abogados S.A.S',
-  'JA Inversiones Forestales S.A.S',
-  'Cpece Consultorio Panameño S.A',
+  'Ronce',
+  'Salazar Abogados',
+  'JA Inversiones Forestales',
+  'Cpece Consultorio Panameño',
   'Gestores de Negocios Inmobiliarios',
-  'SV Map S.A.S',
-  'RB de Colombia S.A.S',
-  'Consultorio Empresarial y de Comercio Exterior S.A.S',
+  'SV Map',
+  'RB de Colombia',
+  'Consultorio Empresarial y de Comercio Exterior',
 ];
 
 export function LogoMarquee() {
