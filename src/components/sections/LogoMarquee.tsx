@@ -1,14 +1,12 @@
 const brands = [
-  'TechBog',
-  'Natura Orgánica',
-  'PuebloLab',
-  'CaféTropical',
-  'AndinaCo',
-  'NubeAzul',
-  'Saber+',
-  'Lumen Studio',
-  'Selva',
-  'PlanIA',
+  'Ronce S.A.S',
+  'Salazar Abogados S.A.S',
+  'JA Inversiones Forestales S.A.S',
+  'Cpece Consultorio Panameño S.A',
+  'Gestores de Negocios Inmobiliarios',
+  'SV Map S.A.S',
+  'RB de Colombia S.A.S',
+  'Consultorio Empresarial y de Comercio Exterior S.A.S',
 ];
 
 export function LogoMarquee() {
