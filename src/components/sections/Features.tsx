@@ -34,6 +34,18 @@ interface Feature {
 /** Productos de pago por suscripción, cada uno con su propio RAG. */
 const products: Feature[] = [
   {
+    id: 'legamio-litiga',
+    icon: Scale,
+    title: 'Legamio Litiga',
+    description:
+      'Analiza el expediente en cada etapa del proceso, de la demanda al alegato de conclusión: estudia a tu contraparte, anticipa sus movimientos y sugiere tu estrategia.',
+    chip: 'Contencioso administrativo (CPACA)',
+    chipColor: 'orange',
+    iconColor: '#FFFFFF',
+    iconBg: '#FFA200',
+    borderHover: 'hover:border-legamio-orange',
+  },
+  {
     id: 'due-diligence',
     icon: ScanSearch,
     title: 'Smart Due Diligence',
@@ -48,7 +60,7 @@ const products: Feature[] = [
   {
     id: 'legamio-legal',
     icon: FileSignature,
-    title: 'Legamio Legal',
+    title: 'Legamio Docs',
     description:
       'Genera contratos laborales y comerciales, actas de creación y de asambleas y otros documentos legales en minutos, adaptados a tu caso y ajustados a la ley colombiana.',
     chip: '+30 documentos',
@@ -56,18 +68,6 @@ const products: Feature[] = [
     iconColor: '#FFFFFF',
     iconBg: '#FF6BFF',
     borderHover: 'hover:border-legamio-magenta',
-  },
-  {
-    id: 'legamio-litiga',
-    icon: Scale,
-    title: 'Legamio Litiga',
-    description:
-      'Un RAG que analiza expedientes con base en el Código General del Proceso (CGP) para estudiar a tu contraparte, anticipar movimientos y preparar tu estrategia.',
-    chip: 'Basado en el CGP',
-    chipColor: 'orange',
-    iconColor: '#FFFFFF',
-    iconBg: '#FFA200',
-    borderHover: 'hover:border-legamio-orange',
   },
 ];
 
@@ -206,8 +206,9 @@ export function Features() {
           variants={fadeInUp}
           className="mt-4 text-lg font-light text-legamio-gray"
         >
-          Cada producto está impulsado por su propio RAG jurídico, ajustado al
-          entorno legal colombiano. Disponibles por suscripción.
+          Cada producto está impulsado por su propia base de conocimiento
+          jurídico, ajustada al entorno legal colombiano. Disponibles por
+          suscripción.
         </m.p>
       </m.div>
 

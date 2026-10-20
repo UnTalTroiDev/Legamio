@@ -11,8 +11,10 @@ import { useInView } from '@/hooks/useInView';
 import { fadeInUp, staggerContainer, floatY } from '@/lib/animations';
 
 const HERO_PHRASES = [
-  'crecer sin miedo',
-  'impulsar tu negocio',
+  'analizar la demanda',
+  'sugerir tu estrategia',
+  'preparar la audiencia',
+  'construir tu alegato',
   'operar con seguridad',
   'tener claridad legal',
   'contratos a tu medida',
@@ -21,6 +23,7 @@ const HERO_PHRASES = [
   'prevenir riesgos',
   'firmar con confianza',
   'negociar con respaldo',
+  'auditar con certeza',
 ];
 
 /**
@@ -135,8 +138,9 @@ export function Hero() {
             variants={fadeInUp}
             className="max-w-[500px] text-lg md:text-xl font-light text-legamio-gray leading-relaxed"
           >
-            Resuelve dudas jurídicas, genera contratos personalizados y accede a
-            guías legales. Todo en minutos, sin abogados.
+            Analiza expedientes y sugiere estrategias en cada etapa del proceso
+            con Legamio Litiga, genera contratos a la medida y audita con Smart
+            Due Diligence. Inteligencia legal para abogados y empresas.
           </m.p>
 
           <m.div variants={fadeInUp} className="flex flex-wrap items-center gap-3">

@@ -29,22 +29,22 @@ const links: NavLinkItem[] = [
     to: '#servicios',
     children: [
       {
+        label: 'Legamio Litiga',
+        to: '/#legamio-litiga',
+        icon: <Scale className="size-4" />,
+        description: 'Analiza expedientes y tu contraparte',
+      },
+      {
         label: 'Smart Due Diligence',
         to: '/#due-diligence',
         icon: <ScanSearch className="size-4" />,
         description: 'Debida diligencia automatizada con IA',
       },
       {
-        label: 'Legamio Legal',
+        label: 'Legamio Docs',
         to: '/#legamio-legal',
         icon: <FileSignature className="size-4" />,
         description: 'Contratos y documentos a tu medida',
-      },
-      {
-        label: 'Legamio Litiga',
-        to: '/#legamio-litiga',
-        icon: <Scale className="size-4" />,
-        description: 'Analiza expedientes y tu contraparte (CGP)',
       },
     ],
   },
