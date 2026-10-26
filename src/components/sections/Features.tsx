@@ -1,11 +1,11 @@
 import { m } from 'framer-motion';
 import {
   Bell,
-  BookOpen,
+  FileDown,
   FileSignature,
   Headset,
-  LayoutDashboard,
-  MessageCircle,
+  Layers,
+  Lock,
   Scale,
   ScanSearch,
   Shield,
@@ -29,6 +29,8 @@ interface Feature {
   borderHover: string;
   /** Ancla para enlaces del menú (#id) — solo productos. */
   id?: string;
+  /** Etiqueta de la esquina superior derecha — solo productos. */
+  badge?: string;
 }
 
 /** Productos de pago por suscripción, cada uno con su propio RAG. */
@@ -39,11 +41,12 @@ const products: Feature[] = [
     title: 'Legamio Litiga',
     description:
       'Analiza el expediente en cada etapa del proceso, de la demanda al alegato de conclusión: estudia a tu contraparte, anticipa sus movimientos y sugiere tu estrategia.',
-    chip: 'Contencioso administrativo (CPACA)',
+    chip: 'Litigio paso a paso',
     chipColor: 'orange',
     iconColor: '#FFFFFF',
     iconBg: '#FFA200',
     borderHover: 'hover:border-legamio-orange',
+    badge: 'Suscripción',
   },
   {
     id: 'due-diligence',
@@ -56,6 +59,7 @@ const products: Feature[] = [
     iconColor: '#FFFFFF',
     iconBg: '#21C2FF',
     borderHover: 'hover:border-legamio-cyan',
+    badge: 'Próximamente',
   },
   {
     id: 'legamio-legal',
@@ -68,39 +72,40 @@ const products: Feature[] = [
     iconColor: '#FFFFFF',
     iconBg: '#FF6BFF',
     borderHover: 'hover:border-legamio-magenta',
+    badge: 'Próximamente',
   },
 ];
 
 /** Capacidades incluidas, transversales a los productos. */
 const capabilities: Feature[] = [
   {
-    icon: MessageCircle,
-    title: 'Consultas legales con IA',
+    icon: Lock,
+    title: 'Acceso seguro',
     description:
-      'Resuelve tus dudas jurídicas al instante. Nuestra IA está ajustada al entorno legal colombiano y te da respuestas claras y prácticas.',
-    chip: 'Disponible 24/7',
+      'Entras con tu cuenta de Google: sin contraseñas que recordar ni filtrar. Cada sesión está cifrada y tus expedientes solo son visibles para ti.',
+    chip: 'Autenticación protegida',
     chipColor: 'cyan',
     iconColor: '#21C2FF',
     iconBg: '#F0FBFF',
     borderHover: 'hover:border-legamio-cyan',
   },
   {
-    icon: BookOpen,
-    title: 'Guías legales gratuitas',
+    icon: Layers,
+    title: 'Análisis en cada etapa del proceso',
     description:
-      'Accede a guías paso a paso sobre trámites empresariales, constitución de sociedades, propiedad intelectual y más.',
-    chip: '100% gratuitas',
+      'De la admisibilidad al alegato de conclusión: Legamio Litiga estudia el expediente fase por fase, evalúa las pruebas, revisa prescripción y caducidad y te sugiere la estrategia para la siguiente actuación.',
+    chip: '7 fases del proceso',
     chipColor: 'yellow',
     iconColor: '#A88500',
     iconBg: '#FFDD00',
     borderHover: 'hover:border-legamio-yellow',
   },
   {
-    icon: LayoutDashboard,
-    title: 'Gestión centralizada',
+    icon: FileDown,
+    title: 'Kit de Audiencia en PDF',
     description:
-      'Mantén un panel de control con todos tus documentos, contratos y consultas en un solo lugar. Con historial completo y descarga en PDF.',
-    chip: 'Organiza todo',
+      'Cada análisis se entrega como un documento listo para usar: teoría del caso, interrogatorios, evaluación de pruebas y alertas de términos. Lo descargas, lo llevas a la audiencia y lo vuelves a cargar para la siguiente fase.',
+    chip: 'Entrega en PDF',
     chipColor: 'cyan',
     iconColor: '#21C2FF',
     iconBg: '#F0FBFF',
@@ -141,7 +146,7 @@ const capabilities: Feature[] = [
   },
 ];
 
-function FeatureCard({ feature, premium }: { feature: Feature; premium?: boolean }) {
+function FeatureCard({ feature }: { feature: Feature }) {
   const { icon: Icon, ...f } = feature;
   return (
     <m.article
@@ -155,9 +160,9 @@ function FeatureCard({ feature, premium }: { feature: Feature; premium?: boolean
         f.id && 'scroll-mt-24',
       )}
     >
-      {premium && (
+      {f.badge && (
         <span className="absolute right-5 top-5 rounded-full bg-legamio-gray-soft px-2.5 py-1 text-[11px] font-bold uppercase tracking-[0.06em] text-legamio-gray">
-          Suscripción
+          {f.badge}
         </span>
       )}
       <div
@@ -221,7 +226,7 @@ export function Features() {
         className="mt-14 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
       >
         {products.map((f) => (
-          <FeatureCard key={f.title} feature={f} premium />
+          <FeatureCard key={f.title} feature={f} />
         ))}
       </m.div>
 
@@ -254,7 +259,7 @@ export function Features() {
           <span className="font-display-italic font-normal">Legamio</span>
         </h3>
         <p className="mt-3 text-[15px] font-light text-legamio-gray">
-          Herramientas y garantías transversales a todos los productos.
+          Seguridad y garantías transversales a todo lo que haces en Legamio Litiga.
         </p>
       </m.div>
 
