@@ -82,8 +82,8 @@ const capabilities: Feature[] = [
     icon: Lock,
     title: 'Acceso seguro',
     description:
-      'Entras con tu cuenta de Google: sin contraseñas que recordar ni filtrar. Cada sesión está cifrada y tus expedientes solo son visibles para ti.',
-    chip: 'Autenticación protegida',
+      'Inicia sesión con tu correo electrónico, sin contraseñas que recordar ni filtrar. Cada sesión está cifrada y tu información solo es visible para ti. Ciberseguridad desde el primer clic.',
+    chip: 'Ciberseguridad',
     chipColor: 'cyan',
     iconColor: '#21C2FF',
     iconBg: '#F0FBFF',
@@ -93,8 +93,8 @@ const capabilities: Feature[] = [
     icon: Layers,
     title: 'Análisis en cada etapa del proceso',
     description:
-      'De la admisibilidad al alegato de conclusión: Legamio Litiga estudia el expediente fase por fase, evalúa las pruebas, revisa prescripción y caducidad y te sugiere la estrategia para la siguiente actuación.',
-    chip: '7 fases del proceso',
+      'Demanda, contestación, traslado, control probatorio, audiencia inicial, instrucción y alegato: Legamio Litiga revisa el expediente etapa por etapa, con más de 40 puntos de análisis y sugerencias concretas para tu siguiente actuación. La IA anticipa; el abogado decide.',
+    chip: '7 momentos · +40 etapas',
     chipColor: 'yellow',
     iconColor: '#A88500',
     iconBg: '#FFDD00',
@@ -102,10 +102,10 @@ const capabilities: Feature[] = [
   },
   {
     icon: FileDown,
-    title: 'Kit de Audiencia en PDF',
+    title: 'Un Kit por cada etapa procesal',
     description:
-      'Cada análisis se entrega como un documento listo para usar: teoría del caso, interrogatorios, evaluación de pruebas y alertas de términos. Lo descargas, lo llevas a la audiencia y lo vuelves a cargar para la siguiente fase.',
-    chip: 'Entrega en PDF',
+      'Cada análisis se convierte en un Kit en PDF listo para usar: hechos y pruebas, puntos de ataque, interrogatorios, alertas de términos, borradores de escritos y sugerencias de estrategia para tu siguiente actuación procesal. Lo descargas, lo trabajas y lo vuelves a cargar para la etapa siguiente.',
+    chip: '7 Kits en PDF',
     chipColor: 'cyan',
     iconColor: '#21C2FF',
     iconBg: '#F0FBFF',
@@ -203,9 +203,10 @@ export function Features() {
           variants={fadeInUp}
           className="font-display mt-5 text-[32px] md:text-[46px] font-medium text-legamio-ink leading-[1.05] tracking-tight"
         >
-          Tres productos para{' '}
-          <span className="font-display-italic font-normal">proteger</span>{' '}
-          tu negocio
+          Litiga, revisa y redacta con{' '}
+          <span className="font-display-italic font-normal">
+            inteligencia legal
+          </span>
         </m.h2>
         <m.p
           variants={fadeInUp}
